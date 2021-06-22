@@ -1,20 +1,17 @@
 <template>
   <main class="flex-1">
     <pre>
-  {{ person }}
-  </pre
-    >
-    <button @click="register">
-      {{ $t('register') }}
-    </button>
+  {{ user }}
+  </pre>
+    <button @click="register">{{ $t('register') }}</button>
   </main>
 </template>
 
 <script>
-import {defineComponent} from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
   props: {
-    person: {
+    user: {
       type: Object,
       required: true,
     },

@@ -1,10 +1,213 @@
+<script>
+import { categories, products } from '@/__mocks__'
+import { process } from '@progress/kendo-data-query'
+import { Grid } from '@progress/kendo-vue-grid'
+import { DropDownList } from '@progress/kendo-vue-dropdowns'
+import { Window } from '@progress/kendo-vue-dialogs'
+import '@progress/kendo-theme-default/dist/all.css'
+
+export default {
+  components: {
+    DropDownList,
+    Grid,
+    Window
+  },
+  metaInfo() {
+    return {
+      title: this.$t('dashboard'),
+    }
+  },
+  data() {
+    return {
+      activeTab: 1,
+      categories,
+      defaultItems: { CategoryID: null, CategoryName: "Product categories" },
+      dropdownlistCategory: null,
+      products,
+      users: null,
+      value: 5,
+      isFullwidth: false,
+      isImageModalActive: false,
+      modalOpen: false,
+      showNotifications: false,
+      showOverlay: false,
+      showSidebar: false,
+      events: [
+        {
+          title: 'event1',
+          start: '2010-01-01',
+        },
+        {
+          title: 'event2',
+          start: '2010-01-05',
+          end: '2010-01-07',
+        },
+        {
+          title: 'event3',
+          start: '2010-01-09T12:30:00',
+          allDay: false,
+        },
+      ],
+      isOpen: 0,
+      selected: new Date(),
+      showWeekNumber: false,
+      locale: undefined, // Browser locale
+
+      pageable: true,
+      sortable: true,
+      skip: 0,
+      take: 10,
+      sort: [
+        { field: "ProductName", dir: "asc" }
+      ],
+      filter: null,
+      columns: [
+        { field: 'ProductName', title: 'Product Name' },
+        { field: 'UnitPrice', title: 'Price' },
+        { field: 'UnitsInStock', title: 'Units in Stock' },
+        { field: 'Discontinued', cell: 'discontinuedTemplate' }
+      ],
+      dataResult: [],
+      gridClickedRow: {},
+      windowVisible: false
+    }
+  },
+  created() {
+    const dataState = {
+      skip: this.skip,
+      take: this.take,
+      sort: this.sort,
+    }
+    this.dataResult = process(products, dataState)
+  },
+  async mounted() {
+    // try {
+    //   let response = await this.$axios.get('users')
+    //   this.users = response.data
+    // } catch (err) {
+    //   console.log(err)
+    // }
+  },
+  computed: {
+    participantsTitle() {
+      return this.$t('participants')
+    },
+    coursesTitle() {
+      return this.$t('courses')
+    },
+    collapses() {
+      return [
+        {
+          title: `${this.$t('question')} 1`,
+          text: `${this.$t('answer')} 1`,
+        },
+        {
+          title: `${this.$t('question')} 2`,
+          text: `${this.$t('answer')} 2`,
+        },
+        {
+          title: `${this.$t('question')} 3`,
+          text: `${this.$t('answer')} 3`,
+        },
+      ]
+    },
+  },
+  methods: {
+    handleDropDownChange(e) {
+      this.dropdownlistCategory = e.target.value.CategoryID
+      if (e.target.value.CategoryID !== null) {
+        this.filter = {
+          logic: 'and',
+          filters: [{ field: 'CategoryID', operator: 'eq', value: e.target.value.CategoryID }]
+        }
+        this.skip = 0
+      } else {
+        this.filter = []
+        this.skip = 0
+      }
+      let event = {
+        data: {
+          skip: this.skip,
+          take: this.take,
+          sort: this.sort,
+          filter: this.filter
+        }
+      }
+      this.dataStateChange(event)
+    },
+    createAppState: function(dataState) {
+      this.take = dataState.take
+      this.skip = dataState.skip
+      this.sort = dataState.sort
+    },
+    dataStateChange(event) {
+      this.createAppState(event.data)
+      this.dataResult = process(products, {
+        skip: this.skip,
+        take: this.take,
+        sort: this.sort,
+        filter: this.filter
+      })
+    },
+    rowClick(event) {
+      this.windowVisible = true
+      this.gridClickedRow = event.dataItem
+    },
+    closeWindow() {
+      this.windowVisible = false
+    }
+  }
+}
+</script>
+
 <template>
-  <main class="flex-1">
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>{{ $t('projects') }}</BasePageHeading>
 
-    <article class="p-4 lg:p-8">
-      <ProjectsList class="mt-4 lg:hidden" />
-      <ProjectsTable class="hidden mt-4 lg:block" />
-    </article>
+    <section class="p-4 m-4 bg-white rounded">
+      <DropDownList
+        :data-items="categories"
+        :data-item-key="'CategoryID'"
+        :text-field="'CategoryName'"
+        :default-item="defaultItems"
+        @change="handleDropDownChange"
+      />
+
+      <article class="mt-4">
+        <Grid
+          :data-items="dataResult"
+          :pageable="pageable"
+          :sortable="sortable"
+          :sort="sort"
+          :take="take"
+          :skip="skip"
+          :columns="columns"
+          @datastatechange="dataStateChange"
+          @rowclick="rowClick"
+          :style="{ height: '400px' }"
+        >
+          <template v-slot:discontinuedTemplate="{ props }">
+            <td colspan="1">
+              <input type="checkbox" :checked="props.dataItem.Discontinued" disabled="disabled" />
+            </td>
+          </template>
+        </Grid>
+      </article>
+    </section>
+
+    <div
+      class="grid-cols-1 gap-4 mt-1 space-y-1 lg:mt-4 lg:space-y-0 lg:mx-4 lg:grid lg:grid-cols-12"
+    ></div>
+
+    <Window v-if="windowVisible" :title="'Product Details'" @close="closeWindow" :height="250">
+      <dl style="{textAlign:left}">
+        <dt>Product Name</dt>
+        <dd>{{ gridClickedRow.ProductName }}</dd>
+        <dt>Product ID</dt>
+        <dd>{{ gridClickedRow.ProductID }}</dd>
+        <dt>Quantity per Unit</dt>
+        <dd>{{ gridClickedRow.QuantityPerUnit }}</dd>
+      </dl>
+    </Window>
   </main>
 </template>

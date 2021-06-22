@@ -1,6 +1,5 @@
-# CHANGELOG
+# Changelog
 
+## [0.1.0] - 2021-07-07
 
-yellow-hill
-
-https://github.com/vticonsulting/prototype/blob/main/.github/workflows/azure-static-web-apps-yellow-hill-099901c10.yml
+- Init

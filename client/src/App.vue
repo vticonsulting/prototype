@@ -22,6 +22,7 @@ import DefaultLayout from '@/layouts/DefaultLayout'
 import TheFooter from '@/components/TheFooter'
 import TheNavbar from '@/components/TheNavbar'
 import NotificationContainer from '@/components/NotificationContainer.vue'
+import '@progress/kendo-theme-default/dist/all.css'
 
 export default defineComponent({
   name: 'App',

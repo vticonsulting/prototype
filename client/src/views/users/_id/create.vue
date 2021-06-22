@@ -1,18 +1,18 @@
 <template>
   <div>
     <main class="flex-1">
-      <BasePageHeading>{{ person }}</BasePageHeading>
+      <BasePageHeading>{{ user }}</BasePageHeading>
       <h1>Create</h1>
     </main>
   </div>
 </template>
 
 <script>
-import {defineComponent} from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   props: {
-    person: {
+    user: {
       type: Object,
       required: true,
     },

@@ -1101,7 +1101,6 @@
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <!-- Volunteer Eligibility -->
                 <h4 class="text-lg font-medium">{{ $t('volunteer_eligibility') }}</h4>
-
                 - {{ $t('signed_agreement_on') }}:
                 <button>{{ $t('view_print_agreement') }}</button>
 
@@ -1454,13 +1453,12 @@
 </template>
 
 <script>
-import { data2 } from '@/__mocks__'
+import { users } from '@/__mocks__'
 
 export default {
-  // middleware: 'guest',
   data() {
     return {
-      data2,
+      users,
       data: [],
       keepFirst: false,
       openOnFocus: false,
@@ -1495,7 +1493,7 @@ export default {
   },
   computed: {
     filteredDataObj() {
-      return this.data2.filter(option => {
+      return this.users.filter(option => {
         return option.user.first_name
           .toString()
           .toLowerCase()

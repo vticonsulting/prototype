@@ -9,7 +9,7 @@
     >
       <div>
         <div class="px-4 py-5 sm:p-6">
-          <dt class="text-base font-normal">{{ $t('total_applicants') }}</dt>
+          <dt class="text-base font-normal">Total Claims</dt>
           <dd class="flex items-baseline justify-between mt-1 md:block lg:flex">
             <div class="flex items-baseline text-2xl font-semibold">
               71,897

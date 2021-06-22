@@ -1,4 +1,6 @@
 <script>
+import { categories, products } from '@/__mocks__'
+
 export default {
   metaInfo() {
     return {
@@ -8,6 +10,8 @@ export default {
   data() {
     return {
       activeTab: 1,
+      categories,
+      products,
       users: null,
       value: 5,
       isCardModalActive: false,
@@ -39,21 +43,7 @@ export default {
       locale: undefined, // Browser locale
     }
   },
-  async mounted() {
-    // try {
-    //   let response = await this.$axios.get('users')
-    //   this.users = response.data
-    // } catch (err) {
-    //   console.log(err)
-    // }
-  },
   computed: {
-    participantsTitle() {
-      return this.$t('participants')
-    },
-    coursesTitle() {
-      return this.$t('courses')
-    },
     collapses() {
       return [
         {
@@ -76,8 +66,21 @@ export default {
 
 <template>
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
-    <section class="p-4">
-      <StatsDisplay v-if="false" />
+    <section class="m-4">
+      <StatsDisplay />
+    </section>
+
+    <section class="m-4">
+      <svg
+        class="w-full h-64 text-gray-200 bg-white border-2 border-gray-300 rounded shadow"
+        preserveAspectRatio="none"
+        stroke="currentColor"
+        fill="none"
+        viewBox="0 0 200 200"
+        aria-hidden="true"
+      >
+        <path vector-effect="non-scaling-stroke" stroke-width="2" d="M0 0l200 200M0 200L200 0" />
+      </svg>
     </section>
 
     <div

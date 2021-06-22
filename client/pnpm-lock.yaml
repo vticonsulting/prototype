@@ -25,6 +25,18 @@ specifiers:
   '@fullcalendar/vue': ^5.8.0
   '@mapbox/maki': ^6.2.0
   '@oruga-ui/oruga': ^0.3.6
+  '@progress/kendo-data-query': ^1.5.5
+  '@progress/kendo-drawing': ^1.10.1
+  '@progress/kendo-licensing': ^1.1.4
+  '@progress/kendo-theme-default': ^4.39.0
+  '@progress/kendo-vue-animation': ^2.2.4
+  '@progress/kendo-vue-data-tools': ^2.2.4
+  '@progress/kendo-vue-dateinputs': ^2.2.4
+  '@progress/kendo-vue-dialogs': ^2.2.4
+  '@progress/kendo-vue-dropdowns': ^2.2.4
+  '@progress/kendo-vue-grid': ^2.2.4
+  '@progress/kendo-vue-inputs': ^2.2.4
+  '@progress/kendo-vue-intl': ^2.2.4
   '@sentry/browser': ^6.7.2
   '@sentry/integrations': ^6.7.2
   '@sindresorhus/slugify': ^1.1.2
@@ -248,6 +260,18 @@ specifiers:
 dependencies:
   '@ckeditor/ckeditor5-build-classic': 27.1.0
   '@ckeditor/ckeditor5-vue2': 1.0.5
+  '@progress/kendo-data-query': 1.5.5
+  '@progress/kendo-drawing': 1.10.1
+  '@progress/kendo-licensing': 1.1.4
+  '@progress/kendo-theme-default': 4.39.0
+  '@progress/kendo-vue-animation': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+  '@progress/kendo-vue-data-tools': 2.2.4_609d34be7dfba499bc609d0cb22ea564
+  '@progress/kendo-vue-dateinputs': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+  '@progress/kendo-vue-dialogs': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+  '@progress/kendo-vue-dropdowns': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+  '@progress/kendo-vue-grid': 2.2.4_ad878185046eec2e1d761692f9960b24
+  '@progress/kendo-vue-inputs': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+  '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
   axios: 0.21.1
   core-js: 3.15.0
   faker: 5.5.3
@@ -3533,6 +3557,204 @@ packages:
       vue: 2.6.14
     dev: true
 
+  /@progress/kendo-data-query/1.5.5:
+    resolution: {integrity: sha512-V0Q4mgooLM/mThJnuSYI7bt7ZBQj3dwUHrubZEB6kkPu82p6KVLkTC9db3L3H/NFA9NvoioLRjSyccUMQlxcTw==}
+    dependencies:
+      tslib: 1.14.1
+    dev: false
+
+  /@progress/kendo-date-math/1.5.1:
+    resolution: {integrity: sha512-/PsYT6heUHpMOu5hKC9AcF4U4cRNFLSUAyVVAkFEm6w7OsqlCA7XQjVmnxL3+439qFPe0JZ1QEw3CwGAqn9njQ==}
+    dependencies:
+      tslib: 1.14.1
+    dev: false
+
+  /@progress/kendo-drawing/1.10.1:
+    resolution: {integrity: sha512-TuGNh7r4HbmE9KB0HOyIPiaW1HBPqjbeGal3C/uqr4Lu1rQSNg1Rl+DjY5C9mKHxXl+L6T0bexLJOANxy8cTpg==}
+    dependencies:
+      '@progress/pako-esm': 1.0.1
+    dev: false
+
+  /@progress/kendo-licensing/1.1.4:
+    resolution: {integrity: sha512-kCe97pKTfQOiny/odiH93xveRUURdSnm886bPiooJd0t5DRyphrXXF8GY3gl6bS+HRLv5NGrrXeh4UwFyceb4w==}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      jsonwebtoken: 8.5.1
+    dev: false
+
+  /@progress/kendo-popup-common/1.8.0:
+    resolution: {integrity: sha512-/cu0nV+3tHKPEE/bUbJTJHv6t8BMYpwI3uVOYENASYy+ZK1dlOfuRhdpSGH85glAH6NMtr/5pYOPojuXFFz/8A==}
+    dev: false
+
+  /@progress/kendo-theme-default/4.39.0:
+    resolution: {integrity: sha512-0nXNscH1O5TsR7yTTXHVH6CuzzGAPPYwRPNKdVAResG2r7ypxqjVc5Jv1SG5NBrX11A54qwrnNdR/wRBdoyBOA==}
+    dev: false
+
+  /@progress/kendo-vue-animation/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-sa7ZEGeafiQXgc45rJKjrf1shCzVTAAeLaldl6qGxdiRltvSEIRnKFgFVjl0FvUdbU3RodhggH1A7aDgm4ItTg==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-buttons/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-Mdef80pwww9pmmudsBoYYvmGpV6iiZOuGfbNWO9iESx2yxyqunlWr8ttYazVLDFesARW408E14fO8m9nUDhBUw==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-popup': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-common/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-PUMFjjpgSOF/tV7Me/tAW8/RI4AuHYWeHi/2DiNNdJmKYKtadd3lr8N4kpXCZpE+pTQpmc1tHV5wqLno7YZv3Q==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@telerik/kendo-draggable': 2.2.0
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-data-tools/2.2.4_609d34be7dfba499bc609d0cb22ea564:
+    resolution: {integrity: sha512-lIMRfz6kjIc+PYg894ZWpfrUmYYzm3qEQrSh2PQ52/QVOvdU52l/MySAhQ83ezHg+2bo0xaNXirxbztzvbMSUA==}
+    peerDependencies:
+      '@progress/kendo-data-query': ^1.5.4
+      '@progress/kendo-drawing': ^1.9.3
+      '@progress/kendo-vue-dropdowns': ^2.2.0
+      '@progress/kendo-vue-inputs': ^2.2.0
+      '@progress/kendo-vue-intl': ^2.2.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-data-query': 1.5.5
+      '@progress/kendo-drawing': 1.10.1
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-dropdowns': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+      '@progress/kendo-vue-inputs': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+      '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    transitivePeerDependencies:
+      - '@progress/kendo-licensing'
+    dev: false
+
+  /@progress/kendo-vue-dateinputs/2.2.4_f9926c362ed3867a6ca2c32e99a2d410:
+    resolution: {integrity: sha512-AhI0LqVaZXIyuU2IGdi+fJrnM7a5VyjSiTc1/jNzwfYJ8bHqe8R85sza4pVUee2CdPoSmLqnP5XaklXoGXzxjA==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      '@progress/kendo-vue-intl': ^2.2.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-date-math': 1.5.1
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-buttons': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-popup': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-dialogs/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-VrO9ycQXDQF7BY8GKPQXr3gWu/HTV1Llw72k3Ku0XoZAcrQ9YYoHtA6VRcSAvT93VzthvV9F5tqNoKWqlx7Qjg==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-dropdowns/2.2.4_f9926c362ed3867a6ca2c32e99a2d410:
+    resolution: {integrity: sha512-lzIJbbXrturRDfBAChKpB/DGdR1brY9RoNUfjrceat9CH1FPv5ad/N4hUXnhYCRAXuAf23cUnCBvhRpq2xujsg==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      '@progress/kendo-vue-intl': ^2.2.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-popup': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-grid/2.2.4_ad878185046eec2e1d761692f9960b24:
+    resolution: {integrity: sha512-GzUSHpVYDmU1D6g34Jz/4lW4AW2S/mGzDc2PrM7WW/G+/l8ehA9oBsEQtRXcJeZYkWGgfOWzIjo+6vL4+zl8sg==}
+    peerDependencies:
+      '@progress/kendo-data-query': ^1.5.4
+      '@progress/kendo-licensing': ^1.1.0
+      '@progress/kendo-vue-animation': ^2.2.0
+      '@progress/kendo-vue-data-tools': ^2.2.0
+      '@progress/kendo-vue-dateinputs': ^2.2.0
+      '@progress/kendo-vue-dropdowns': ^2.2.0
+      '@progress/kendo-vue-inputs': ^2.2.0
+      '@progress/kendo-vue-intl': ^2.2.0
+      '@progress/kendo-vue-popup': ^2.2.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-data-query': 1.5.5
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-animation': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-data-tools': 2.2.4_609d34be7dfba499bc609d0cb22ea564
+      '@progress/kendo-vue-dateinputs': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+      '@progress/kendo-vue-dropdowns': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+      '@progress/kendo-vue-inputs': 2.2.4_f9926c362ed3867a6ca2c32e99a2d410
+      '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-inputs/2.2.4_f9926c362ed3867a6ca2c32e99a2d410:
+    resolution: {integrity: sha512-IhKaXNQRB9qRuO/YrFSilgSsE78v2HJchSMraihDR2UiEjWLPOfvFHNqiu5Qczjmm2PXO68jJibUFRntbe7z8A==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      '@progress/kendo-vue-intl': ^2.2.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-intl': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-intl/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-BZzlnu4XOzCD+YTDPIKEsBqsWkO4LffSJ4kED6vdLnqBjABssAvvDZBWaL+UT6mokBI1wG8eUN0tVdf6rAI4TQ==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@telerik/kendo-intl': 2.3.0
+      vue: 2.6.14
+    dev: false
+
+  /@progress/kendo-vue-popup/2.2.4_9cf385dea3e098ab9b4f7078af19ef93:
+    resolution: {integrity: sha512-/DYgTqX9P2UGC1edmiEAeEb86GKocnKOL5NaIAWZ1LlQRKhhJ9LFjyqIBMe+G0hPqK+tVkiC4R6qbc+MKDvj9A==}
+    peerDependencies:
+      '@progress/kendo-licensing': ^1.1.0
+      vue: ^2.6.12 || ^3.0.2
+    dependencies:
+      '@progress/kendo-licensing': 1.1.4
+      '@progress/kendo-popup-common': 1.8.0
+      '@progress/kendo-vue-animation': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      '@progress/kendo-vue-common': 2.2.4_9cf385dea3e098ab9b4f7078af19ef93
+      vue: 2.6.14
+    dev: false
+
+  /@progress/pako-esm/1.0.1:
+    resolution: {integrity: sha512-O4A3b1EuE9Xe1pC3Xz9Tcn1M/CYrL71f4y/5TXeytOVTkmkzBgYW97fYP2f+54H0e0erWRaqV/kUUB/a8Uxfbw==}
+    dev: false
+
   /@samverschueren/stream-to-observable/0.3.1_rxjs@6.6.7:
     resolution: {integrity: sha512-c/qwwcHyafOQuVQJj0IlBjf5yYgBI7YPJ77k4fOJYesb41jio65eaJODRUmfYKhTOFBrIZ66kgvGPlNbjuoRdQ==}
     engines: {node: '>=6'}
@@ -3807,6 +4029,14 @@ packages:
       lodash.uniq: 4.5.0
       tailwindcss: /@tailwindcss/postcss7-compat/2.0.4
     dev: true
+
+  /@telerik/kendo-draggable/2.2.0:
+    resolution: {integrity: sha512-78ofOzRpisqPjG51LfLQ4FEWoGJXs4PkzyJSdVklyFw6gtAnj/T6dp7mHIMj8BivVkN9FjNgf4Eo/mdYs9fusQ==}
+    dev: false
+
+  /@telerik/kendo-intl/2.3.0:
+    resolution: {integrity: sha512-IFNL37+I8hvO1G6SsW65ixTqkCtPZDH1SlJ33xEKpjCjVwrC/oLCJjuK+EF5buXSPK0iw0YSvlY6hDHAzAYF6g==}
+    dev: false
 
   /@testing-library/cypress/7.0.6_cypress@6.9.1:
     resolution: {integrity: sha512-atnjqlkEt6spU4Mv7evvpA8fMXeRw7AN2uTKOR1dP6WBvBixVwAYMZY+1fMOaZULWAj9vGLCXXvmw++u3TxuCQ==}
@@ -6212,6 +6442,10 @@ packages:
     resolution: {integrity: sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=}
     dev: true
 
+  /buffer-equal-constant-time/1.0.1:
+    resolution: {integrity: sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=}
+    dev: false
+
   /buffer-from/1.1.1:
     resolution: {integrity: sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==}
     dev: true
@@ -8594,6 +8828,12 @@ packages:
       jsbn: 0.1.1
       safer-buffer: 2.1.2
     dev: true
+
+  /ecdsa-sig-formatter/1.0.11:
+    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: false
 
   /editorconfig/0.15.3:
     resolution: {integrity: sha512-M9wIMFx96vq0R4F+gRpY3o2exzb8hEj/n9S8unZtHSvYjibBp/iMufSzvmOcV/laG0ZtuTVGtiJggPOSW2r93g==}
@@ -13012,6 +13252,22 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /jsonwebtoken/8.5.1:
+    resolution: {integrity: sha512-XjwVfRS6jTMsqYs0EsuJ4LGxXV14zQybNd4L2r0UvbVnSF9Af8x7p5MzbJ90Ioz/9TI41/hTCvznF/loiSzn8w==}
+    engines: {node: '>=4', npm: '>=1.4.28'}
+    dependencies:
+      jws: 3.2.2
+      lodash.includes: 4.3.0
+      lodash.isboolean: 3.0.3
+      lodash.isinteger: 4.0.4
+      lodash.isnumber: 3.0.3
+      lodash.isplainobject: 4.0.6
+      lodash.isstring: 4.0.1
+      lodash.once: 4.1.1
+      ms: 2.1.3
+      semver: 5.7.1
+    dev: false
+
   /jspdf/2.3.1:
     resolution: {integrity: sha512-1vp0USP1mQi1h7NKpwxjFgQkJ5ncZvtH858aLpycUc/M+r/RpWJT8PixAU7Cw/3fPd4fpC8eB/Bj42LnsR21YQ==}
     dependencies:
@@ -13053,6 +13309,21 @@ packages:
       is-promise: 2.2.2
       promise: 7.3.1
     dev: true
+
+  /jwa/1.4.1:
+    resolution: {integrity: sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==}
+    dependencies:
+      buffer-equal-constant-time: 1.0.1
+      ecdsa-sig-formatter: 1.0.11
+      safe-buffer: 5.2.1
+    dev: false
+
+  /jws/3.2.2:
+    resolution: {integrity: sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==}
+    dependencies:
+      jwa: 1.4.1
+      safe-buffer: 5.2.1
+    dev: false
 
   /jwt-decode/3.1.2:
     resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
@@ -13654,9 +13925,17 @@ packages:
     resolution: {integrity: sha1-0Z9NwQlQWMzL4rDN9O4P5Ko3yGI=}
     dev: true
 
+  /lodash.includes/4.3.0:
+    resolution: {integrity: sha1-YLuYqHy5I8aMoeUTJUgzFISfVT8=}
+    dev: false
+
   /lodash.invokemap/4.6.0:
     resolution: {integrity: sha1-F0jNpdiw74NpxOs+xUwh/rofLWI=}
     dev: true
+
+  /lodash.isboolean/3.0.3:
+    resolution: {integrity: sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=}
+    dev: false
 
   /lodash.isempty/4.4.0:
     resolution: {integrity: sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=}
@@ -13672,11 +13951,17 @@ packages:
 
   /lodash.isinteger/4.0.4:
     resolution: {integrity: sha1-YZwK89A/iwTDH1iChAt3sRzWg0M=}
-    dev: true
+
+  /lodash.isnumber/3.0.3:
+    resolution: {integrity: sha1-POdoEMWSjQM1IwGsKHMX8RwLH/w=}
+    dev: false
 
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=}
-    dev: true
+
+  /lodash.isstring/4.0.1:
+    resolution: {integrity: sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=}
+    dev: false
 
   /lodash.kebabcase/4.1.1:
     resolution: {integrity: sha1-hImxyw0p/4gZXM7KRI/21swpXDY=}
@@ -13704,7 +13989,6 @@ packages:
 
   /lodash.once/4.1.1:
     resolution: {integrity: sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=}
-    dev: true
 
   /lodash.pick/4.4.0:
     resolution: {integrity: sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=}
@@ -14470,7 +14754,6 @@ packages:
 
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
-    dev: true
 
   /msw/0.29.0:
     resolution: {integrity: sha512-C/wz1d5uAEZRvAPAYrXG1rwLxXl0+BOs+JPrCzasoABZW3ATwS6ifSze+/DAgA93e9M86RXwvy6yDtZeZWmCFQ==}
@@ -17572,7 +17855,6 @@ packages:
 
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
-    dev: true
 
   /safe-json-parse/4.0.0:
     resolution: {integrity: sha1-fA9XjPzNEtM6ccDgVBPi7KFx6qw=}
@@ -17736,7 +18018,6 @@ packages:
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
     hasBin: true
-    dev: true
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
@@ -19235,7 +19516,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: true
 
   /tslib/2.3.0:
     resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
