@@ -1,0 +1,7 @@
+.select-field .select {
+  @apply mt-1 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500;
+}
+
+.select-field.is-expanded .select {
+  @apply w-full;
+}

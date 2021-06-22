@@ -67,6 +67,10 @@ export default {
 <template>
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <section class="m-4">
+      <BaseInput label="Search by Project or Claim Number" type="text" />
+    </section>
+
+    <section class="m-4">
       <StatsDisplay />
     </section>
 

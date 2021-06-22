@@ -86,10 +86,10 @@ export default {
           name: 'reports',
           label: this.$t('reports'),
         },
-        {
-          name: 'settings',
-          label: this.$t('settings'),
-        },
+        // {
+        //   name: 'settings',
+        //   label: this.$t('settings'),
+        // },
       ]
     },
   },
@@ -174,6 +174,12 @@ export default {
                 ]"
               >{{ route.label }}</a>
             </RouterLink>
+
+            <div
+              class="relative inline-flex items-center px-1 pt-1 text-sm font-medium whitespace-nowrap"
+            >
+              <BaseDropdown :paths="['dashboard', 'profile', 'calendar']">{{ $t('settings') }}</BaseDropdown>
+            </div>
           </div>
         </div>
 

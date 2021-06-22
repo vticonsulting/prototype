@@ -978,13 +978,18 @@ export const projects = [
 ]
 
 export const statusTypes = [
-  {name: 'Pending'},
-  {name: 'Closed'},
+  {name: 'Assigned'},
+  {name: 'Billed'},
   {name: 'Call Queue'},
-  {name: 'Birthdays'},
-  {name: 'FAM Events'},
-  {name: 'Affiliate Events'},
-  {name: 'Promise Network Events'},
+  {name: 'Closed'},
+  {name: 'Complete'},
+  {name: 'Confirmed'},
+  {name: 'Hold'},
+  {name: 'Pending'},
+  {name: 'Review'},
+  {name: 'Schedule'},
+  {name: 'Triage'},
+  {name: 'Working'},
 ]
 
 export const team = [
