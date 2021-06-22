@@ -72,6 +72,32 @@ export default [
       import(/* webpackChunkName: "advocates" */ '@/views/advocates.vue'),
   },
   {
+    path: '/announcements',
+    name: 'announcements',
+    component: () =>
+      import(
+        /* webpackChunkName: "announcements" */ '@/views/announcements.vue'
+      ),
+  },
+  {
+    path: '/board',
+    name: 'board',
+    component: Board,
+    children: [
+      {
+        path: 'task/:id',
+        name: 'task',
+        component: Task,
+      },
+    ],
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: () =>
+      import(/* webpackChunkName: "calendar" */ '@/views/calendar.vue'),
+  },
+  {
     path: '/carriers',
     name: 'carriers',
     props: route => ({page: parseInt(route.query.page) || 1}),
@@ -114,36 +140,10 @@ export default [
     ],
   },
   {
-    path: '/carrier/:afterAffiliate(.*)',
+    path: '/carrier/:afterCarrier(.*)',
     redirect: to => {
-      return {path: '/carriers/' + to.params.afterAffiliate}
+      return {path: '/carriers/' + to.params.afterCarrier}
     },
-  },
-  {
-    path: '/announcements',
-    name: 'announcements',
-    component: () =>
-      import(
-        /* webpackChunkName: "announcements" */ '@/views/announcements.vue'
-      ),
-  },
-  {
-    path: '/board',
-    name: 'board',
-    component: Board,
-    children: [
-      {
-        path: 'task/:id',
-        name: 'task',
-        component: Task,
-      },
-    ],
-  },
-  {
-    path: '/calendar',
-    name: 'calendar',
-    component: () =>
-      import(/* webpackChunkName: "calendar" */ '@/views/calendar.vue'),
   },
   {
     path: '/charts',
@@ -276,6 +276,107 @@ export default [
       import(/* webpackChunkName: "overview" */ '@/views/overview.vue'),
   },
   {
+    path: '/people',
+    name: 'people',
+    component: () =>
+      import(/* webpackChunkName: "people" */ '@/views/people.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () =>
+      import(/* webpackChunkName: "products" */ '@/views/products/products.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () =>
+      import(/* webpackChunkName: "profile" */ '@/views/profile.vue'),
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: () =>
+      import(/* webpackChunkName: "projects" */ '@/views/projects/index.vue'),
+  },
+
+  {
+    path: '/reports',
+    name: 'reports',
+    component: () =>
+      import(/* webpackChunkName: "reports" */ '@/views/reports.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/requests',
+    name: 'requests',
+    component: () =>
+      import(/* webpackChunkName: "requests" */ '@/views/requests.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/resources',
+    name: 'resources',
+    component: () =>
+      import(/* webpackChunkName: "resources" */ '@/views/resources.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/resume',
+    name: 'resume',
+    component: () =>
+      import(/* webpackChunkName: "resume" */ '@/views/resume.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: () =>
+      import(/* webpackChunkName: "settings" */ '@/views/settings.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/support',
+    name: 'support',
+    component: () =>
+      import(/* webpackChunkName: "support" */ '@/views/support.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/tasks',
+    name: 'tasks',
+    component: () =>
+      import(/* webpackChunkName: "tasks" */ '@/views/tasks.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/team',
+    name: 'team',
+    component: () => import(/* webpackChunkName: "team" */ '@/views/team.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/todos',
+    name: 'todos',
+    component: () => import(/* webpackChunkName: "todos" */ '@/views/todos'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/training',
+    name: 'training',
+    component: () =>
+      import(/* webpackChunkName: "training" */ '@/views/training.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: () => import(/* webpackChunkName: "user" */ '@/views/user.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
+  },
+  {
     path: '/users',
     name: 'users',
     props: route => ({page: parseInt(route.query.page) || 1}),
@@ -325,99 +426,6 @@ export default [
     redirect: to => {
       return {path: '/users/' + to.params.afterPerson}
     },
-  },
-  {
-    path: '/profile',
-    name: 'profile',
-    component: () =>
-      import(/* webpackChunkName: "profile" */ '@/views/profile.vue'),
-  },
-  {
-    path: '/projects',
-    name: 'projects',
-    component: () =>
-      import(/* webpackChunkName: "projects" */ '@/views/projects/index.vue'),
-  },
-  {
-    path: '/resources',
-    name: 'resources',
-    component: () =>
-      import(/* webpackChunkName: "resources" */ '@/views/resources.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/reports',
-    name: 'reports',
-    component: () =>
-      import(/* webpackChunkName: "reports" */ '@/views/reports.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/requests',
-    name: 'requests',
-    component: () =>
-      import(/* webpackChunkName: "requests" */ '@/views/requests.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/resume',
-    name: 'resume',
-    component: () =>
-      import(/* webpackChunkName: "resume" */ '@/views/resume.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/settings',
-    name: 'settings',
-    component: () =>
-      import(/* webpackChunkName: "settings" */ '@/views/settings.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/support',
-    name: 'support',
-    component: () =>
-      import(/* webpackChunkName: "support" */ '@/views/support.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/tasks',
-    name: 'tasks',
-    component: () =>
-      import(/* webpackChunkName: "tasks" */ '@/views/tasks.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/todos',
-    name: 'todos',
-    component: () => import(/* webpackChunkName: "todos" */ '@/views/todos'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/user',
-    name: 'user',
-    component: () => import(/* webpackChunkName: "user" */ '@/views/user.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/team',
-    name: 'team',
-    component: () => import(/* webpackChunkName: "team" */ '@/views/team.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/training',
-    name: 'training',
-    component: () =>
-      import(/* webpackChunkName: "training" */ '@/views/training.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
-  },
-  {
-    path: '/people',
-    name: 'people',
-    component: () =>
-      import(/* webpackChunkName: "people" */ '@/views/people.vue'),
-    props: route => ({page: parseInt(route.query.page) || 1}),
   },
   {
     path: '/:catchAll(.*)',

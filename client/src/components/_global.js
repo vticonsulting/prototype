@@ -55,8 +55,6 @@ import CalendarSidebar from '@/components/CalendarSidebar'
 import Charts from '@/components/patterns/Charts'
 import ClientsTable from '@/components/patterns/ClientsTable'
 // import ColorSwitcher from '@/components/elements/ColorSwitcher'
-import CourseParticipantsList from '@/components/patterns/CourseParticipantsList'
-import CourseParticipantsTable from '@/components/patterns/CourseParticipantsTable'
 import DarkModeSwitch from '@/components/patterns/DarkModeSwitch'
 import DashboardCalendar from '@/components/DashboardCalendar'
 import Divider from '@/components/elements/Divider'
@@ -79,6 +77,8 @@ import ProfileBio from '@/components/patterns/ProfileBio'
 import ProfileSidebar from '@/components/patterns/ProfileSidebar'
 import ProjectsList from '@/components/patterns/ProjectsList'
 import ProjectsTable from '@/components/patterns/ProjectsTable'
+import ProjectsList2 from '@/components/patterns/ProjectsList2'
+import ProjectsTable2 from '@/components/patterns/ProjectsTable2'
 import QuickLinksButton from '@/components/patterns/QuickLinksButton'
 import SettingsGeneralAccount from '@/components/patterns/SettingsGeneralAccount'
 import SettingsGeneralProfile from '@/components/patterns/SettingsGeneralProfile'
@@ -165,8 +165,6 @@ Vue.component('BillingHistory', BillingHistory)
 Vue.component('CalendarSidebar', CalendarSidebar)
 Vue.component('Charts', Charts)
 Vue.component('ClientsTable', ClientsTable)
-Vue.component('CourseParticipantsList', CourseParticipantsList)
-Vue.component('CourseParticipantsTable', CourseParticipantsTable)
 Vue.component('DarkModeSwitch', DarkModeSwitch)
 Vue.component('DashboardCalendar', DashboardCalendar)
 Vue.component('Divider', Divider)
@@ -190,6 +188,8 @@ Vue.component('ProfileSidebar', ProfileSidebar)
 
 Vue.component('ProjectsList', ProjectsList)
 Vue.component('ProjectsTable', ProjectsTable)
+Vue.component('ProjectsList2', ProjectsList2)
+Vue.component('ProjectsTable2', ProjectsTable2)
 Vue.component('QuickLinksButton', QuickLinksButton)
 Vue.component('SettingsGeneralAccount', SettingsGeneralAccount)
 Vue.component('SettingsGeneralProfile', SettingsGeneralProfile)

@@ -2,7 +2,7 @@
   <main class="flex-1">
     <BasePageHeading>{{ $t('settings') }}</BasePageHeading>
 
-    <section class="max-w-xl p-8">
+    <section v-if="false" class="max-w-xl p-8">
       <OField :label="$t('find_movie')">
         <OAutocomplete
           :data="data"

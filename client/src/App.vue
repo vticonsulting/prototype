@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { provide, defineComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import DefaultLayout from '@/layouts/DefaultLayout'
 import TheFooter from '@/components/TheFooter'
 import TheNavbar from '@/components/TheNavbar'
@@ -61,11 +61,6 @@ export default defineComponent({
     TheFooter,
     TheNavbar,
     NotificationContainer,
-  },
-  setup() {
-    provide('globals', {
-      maintainence: false,
-    })
   },
   data() {
     return {

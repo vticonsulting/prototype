@@ -11,6 +11,7 @@ import event from '@/store/modules/event'
 // import menu from '@/store/modules/menu'
 import message from '@/store/modules/message'
 import notification from '@/store/modules/notification'
+import products from '@/store/modules/products'
 // import user from '@/store/modules/user'
 
 Vue.use(Vuex)
@@ -26,11 +27,13 @@ const getEventIndexById = (state, eventId) =>
   state.events.findIndex(event => event.id.toString() === eventId.toString())
 
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   plugins: [saveStatePlugin],
   modules: {
     event,
     message,
     notification,
+    products
   },
 
   state: {
@@ -305,5 +308,7 @@ const store = new Vuex.Store({
     },
   },
 })
+
+export * from './modules/mutation-types'
 
 export default store

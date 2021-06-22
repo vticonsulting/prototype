@@ -3,25 +3,17 @@
     <h3
       v-if="false"
       class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-50"
-    >
-      Last 30 days
-    </h3>
+    >Last 30 days</h3>
     <dl
-      class="grid grid-cols-1 overflow-hidden bg-white divide-y divide-gray-200 shadow dark:divide-gray-600 dark:bg-gray-700 lg:rounded-lg md:grid-cols-3 md:divide-y-0 md:divide-x"
+      class="grid grid-cols-1 overflow-hidden bg-white border border-gray-300 divide-y divide-gray-200 shadow dark:border-gray-700 dark:bg-black dark:divide-gray-600 lg:rounded-lg md:grid-cols-3 md:divide-y-0 md:divide-x"
     >
       <div>
         <div class="px-4 py-5 sm:p-6">
-          <dt class="text-base font-normal text-gray-900 dark:text-gray-50">
-            {{ $t('total_applicants') }}
-          </dt>
+          <dt class="text-base font-normal">{{ $t('total_applicants') }}</dt>
           <dd class="flex items-baseline justify-between mt-1 md:block lg:flex">
-            <div
-              class="flex items-baseline text-2xl font-semibold text-primary-600"
-            >
+            <div class="flex items-baseline text-2xl font-semibold">
               71,897
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                {{ $t('from') }} 70,946
-              </span>
+              <span class="ml-2 text-sm font-medium text-gray-500">{{ $t('from') }} 70,946</span>
             </div>
 
             <div
@@ -39,7 +31,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="sr-only"> {{ $t('increased_by') }}</span>
+              <span class="sr-only">{{ $t('increased_by') }}</span>
               12%
             </div>
           </dd>
@@ -48,17 +40,13 @@
 
       <div>
         <div class="px-4 py-5 sm:p-6">
-          <dt class="text-base font-normal text-gray-900 dark:text-gray-50">
-            {{ $t('average_open_rate') }}
-          </dt>
+          <dt class="text-base font-normal">{{ $t('average_open_rate') }}</dt>
           <dd class="flex items-baseline justify-between mt-1 md:block lg:flex">
             <div
-              class="flex items-baseline text-2xl font-semibold text-primary-600"
+              class="flex items-baseline text-2xl font-semibold text-primary-600 dark:text-primary-200"
             >
               58.16%
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                {{ $t('from') }} 56.14%
-              </span>
+              <span class="ml-2 text-sm font-medium text-gray-500">{{ $t('from') }} 56.14%</span>
             </div>
 
             <div
@@ -76,7 +64,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="sr-only"> {{ $t('increased_by') }} </span>
+              <span class="sr-only">{{ $t('increased_by') }}</span>
               2.02%
             </div>
           </dd>
@@ -85,17 +73,15 @@
 
       <div>
         <div class="px-4 py-5 sm:p-6">
-          <dt class="text-base font-normal text-gray-900 dark:text-gray-50">
-            {{ $t('average_click_rate') }}
-          </dt>
+          <dt
+            class="text-base font-normal text-gray-900 dark:text-gray-50"
+          >{{ $t('average_click_rate') }}</dt>
           <dd class="flex items-baseline justify-between mt-1 md:block lg:flex">
             <div
-              class="flex items-baseline text-2xl font-semibold text-primary-600"
+              class="flex items-baseline text-2xl font-semibold text-primary-600 dark:text-primary-200"
             >
               24.57%
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                {{ $t('from') }} 28.62%
-              </span>
+              <span class="ml-2 text-sm font-medium text-gray-500">{{ $t('from') }} 28.62%</span>
             </div>
 
             <div
@@ -113,7 +99,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-              <span class="sr-only"> {{ $t('decreased_by') }} </span>
+              <span class="sr-only">{{ $t('decreased_by') }}</span>
               4.05%
             </div>
           </dd>

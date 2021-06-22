@@ -1,6 +1,5 @@
 <script>
-import { ref, reactive } from '@vue/composition-api'
-import kebabCase from 'lodash/kebabCase'
+import { ref } from '@vue/composition-api'
 import ModalForm from '@/components/templates/ModalForm.vue'
 import { mixin as clickaway } from 'vue-clickaway'
 
@@ -18,45 +17,36 @@ export default {
   },
   setup() {
     const langs = ref(['en', 'es'])
-
-    const carrier = reactive({
-      id: 1,
-      name: 'Hancock',
-      theme: {
-        nav: {
-          class: 'bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-50',
-        },
-        logo_path: '',
-        colors: {
-          primary: '',
-          secondary: '',
-          danger: '',
-          warning: '',
-          success: '',
-          info: '',
-        },
-      },
-    })
-
     const showAnnouncements = ref(false)
     const showMobileMenu = ref(false)
     const showNewProjectView = ref(false)
     const showVolunteerView = ref(false)
     const showProfileMenu = ref(false)
     const fullwidth = ref(false)
-
-    const slug = kebabCase(carrier.name)
+    const users = ref([
+      {
+        id: 1,
+        name: 'Jeremy Doublestein',
+        username: 'jdoublestein',
+        isOnline: true,
+      },
+      {
+        id: 2,
+        name: 'Victor Tolbert',
+        username: 'username',
+        isOnline: false,
+      },
+    ])
 
     return {
       showAnnouncements,
       showNewProjectView,
       showVolunteerView,
       fullwidth,
-      carrier,
-      slug,
       showMobileMenu,
       showProfileMenu,
       langs,
+      users,
     }
   },
   mounted() {
@@ -85,17 +75,13 @@ export default {
           label: this.$t('projects'),
         },
         {
-          name: 'calendar',
-          label: this.$t('calendar'),
-        },
-        {
           name: 'customers',
           label: this.$t('customers'),
         },
-        {
-          name: 'users',
-          label: this.$t('users'),
-        },
+        // {
+        //   name: 'users',
+        //   label: this.$t('users'),
+        // },
         {
           name: 'reports',
           label: this.$t('reports'),
@@ -131,7 +117,9 @@ export default {
 </script>
 
 <template>
-  <nav :class="[carrier.theme.nav.class, 'fixed top-0 z-10 w-full shadow']">
+  <nav
+    class="fixed top-0 z-10 w-full text-gray-800 bg-white shadow dark:bg-gray-800 dark:text-gray-50"
+  >
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex">
@@ -154,7 +142,14 @@ export default {
               class="flex items-center justify-center"
               :to="{ name: 'dashboard' }"
             >
-              <BaseLogo class="text-primary-500 dark:text-primary-100" :name="slug" />
+              <BaseLogo
+                class="hidden text-primary-500 dark:text-primary-100 md:block"
+                name="hancock-h"
+              />
+              <BaseLogo
+                class="origin-left transform scale-50 text-primary-500 dark:text-primary-100 md:hidden"
+                name="hancock-text"
+              />
             </RouterLink>
           </div>
 
@@ -173,7 +168,7 @@ export default {
                 :class="[
                   {
                     'border-transparent  hover:border-gray-300 hover:text-gray-700 dark:hover:border-gray-300 dark:hover:text-gray-300': !isActive,
-                    'border-primary-500': isActive,
+                    'dark:border-primary-200 border-primary-500': isActive,
                   },
                   'inline-flex capitalize whitespace-nowrap items-center px-1 pt-1 text-sm font-medium border-b-2',
                 ]"
@@ -187,7 +182,7 @@ export default {
             <!-- Notifications Button -->
             <button
               @click="showAnnouncements = !showAnnouncements"
-              class="hidden p-1 text-gray-400 bg-white rounded-full md:block hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              class="hidden p-1 text-gray-400 bg-white rounded-full dark:bg-gray-800 dark:text-gray-400 md:block hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             >
               <span class="sr-only">{{ $t('view_notifications') }}</span>
               <svg
@@ -244,6 +239,13 @@ export default {
                     role="menuitem"
                   >{{ $t('my_profile') }}</RouterLink>
 
+                  <DarkModeSwitch v-if="false" />
+
+                  <LanguageToggle
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    v-if="true"
+                  />
+
                   <a
                     href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -284,12 +286,7 @@ export default {
       <div class="pt-4 pb-3 border-t border-gray-200">
         <div class="flex items-center px-4 sm:px-6">
           <div class="flex-shrink-0">
-            <img
-              style="filter: grayscale(1)"
-              class="w-10 h-10 rounded-full"
-              :src="user.avatarUrl"
-              :alt="user.name"
-            />
+            <img class="w-10 h-10 rounded-full" :src="user.avatarUrl" :alt="user.name" />
           </div>
           <div class="ml-3">
             <div class="text-base font-medium text-gray-800">{{ user.name }}</div>
@@ -522,7 +519,7 @@ export default {
 
                   <!-- List -->
                   <ul class="overflow-y-auto divide-y divide-gray-200">
-                    <li v-for="person in users" :key="person.id" class="relative px-6 py-5">
+                    <li v-for="user in users" :key="user.id" class="relative px-6 py-5">
                       <div class="flex items-center justify-between group">
                         <a href="#" class="block p-1 -m-1">
                           <div class="absolute inset-0 group-hover:bg-gray-50" aria-hidden="true" />
@@ -536,7 +533,7 @@ export default {
                               />
                               <span
                                 :class="[
-                                  person.isOnline
+                                  user.isOnline
                                     ? 'bg-gray-300'
                                     : 'bg-green-400',
                                   'absolute top-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white',
@@ -545,10 +542,8 @@ export default {
                               />
                             </span>
                             <div class="ml-4 truncate">
-                              <p
-                                class="text-sm font-medium text-gray-900 truncate"
-                              >{{ person.name }}</p>
-                              <p class="text-sm text-gray-500 truncate">@{{ person.username }}</p>
+                              <p class="text-sm font-medium text-gray-900 truncate">{{ user.name }}</p>
+                              <p class="text-sm text-gray-500 truncate">@{{ user.username }}</p>
                             </div>
                           </div>
                         </a>

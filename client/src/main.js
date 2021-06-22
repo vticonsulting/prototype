@@ -5,6 +5,7 @@ import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
 import {Model} from 'vue-api-query'
+import VueCompositionApi from '@vue/composition-api'
 
 import NodeIntersect from '@/directives/NodeIntersect'
 
@@ -13,6 +14,7 @@ import '@/components/_global'
 
 import '@/assets/css/tailwind.css'
 
+Vue.use(VueCompositionApi)
 Vue.use(require('vue-shortkey'))
 Vue.config.productionTip = false
 
@@ -24,6 +26,7 @@ Vue.directive('NodeIntersect', NodeIntersect)
 
 // inject global axios instance as http client to Model
 Model.$http = axios
+
 
 new Vue({
   i18n,

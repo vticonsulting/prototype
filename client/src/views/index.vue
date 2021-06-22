@@ -50,24 +50,24 @@ export default {
           description: this.$t('dashboard_description'),
           icon: 'template',
         },
-        {
-          name: 'projects',
-          title: 'Projects',
-          description: this.$t('resources_description'),
-          icon: 'library',
-        },
+        // {
+        //   name: 'projects',
+        //   title: 'Projects',
+        //   description: this.$t('resources_description'),
+        //   icon: 'library',
+        // },
         // {
         //   name: 'training',
         //   title: this.$t('training_title'),
         //   description: this.$t('training_description'),
         //   icon: 'academic-cap',
         // },
-        {
-          name: 'calendar',
-          title: this.$t('calendar_title'),
-          description: this.$t('calendar_description'),
-          icon: 'calendar',
-        },
+        // {
+        //   name: 'calendar',
+        //   title: this.$t('calendar_title'),
+        //   description: this.$t('calendar_description'),
+        //   icon: 'calendar',
+        // },
         {
           name: 'support',
           title: 'Support',
