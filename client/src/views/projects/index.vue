@@ -164,6 +164,21 @@ export default {
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>{{ $t('projects') }}</BasePageHeading>
 
+    <!--
+Add Project
+Export to CSV
+Bulk Assign
+Accept
+Date Range
+Start Date
+Finish Date
+Search
+
+Reset List
+Escalations
+Reschedules
+    -->
+
     <section class="p-4 m-4 bg-white rounded">
       <DropDownList
         :data-items="categories"

@@ -10,6 +10,18 @@
       />
     </section>
 
+    <section class="m-4">
+      <BaseInput placeholder="Search by Project or Claim Number" type="text" />
+    </section>
+
+    <section class="p-4 m-4 space-x-4 bg-white rounded shadow">
+      <OButton>Default</OButton>
+      <OButton variant="primary">Primary</OButton>
+      <OButton variant="success">Success</OButton>
+      <OButton variant="danger">Danger</OButton>
+      <OButton variant="warning">Warning</OButton>
+      <OButton variant="info">Info</OButton>
+    </section>\
     <!-- <strong>{{ dropdownlistCategory }}</strong> -->
 
     <section class="px-8">

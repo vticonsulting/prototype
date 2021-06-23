@@ -17,7 +17,7 @@
           <span class="text-sm">VTi Consulting (Victor Tolbert)</span>
         </a>
 
-        <KeyboardShortcut v-if="false" />
+        <KeyboardShortcut />
 
         <button type="button" @click="toggleDark">
           <BaseIconOutlined name="moon" v-if="isDark" />

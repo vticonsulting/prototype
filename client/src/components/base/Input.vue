@@ -28,12 +28,16 @@ export default {
 
 <template>
   <div>
-    <label :for="uuid" v-if="label" class="block text-sm font-medium text-gray-700">{{ label }}</label>
+    <label
+      :for="uuid"
+      v-if="label"
+      class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+    >{{ label }}</label>
     <input
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
-      class="block w-full max-w-lg border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:max-w-xs sm:text-sm"
+      class="block w-full max-w-lg bg-white border-gray-300 rounded-md shadow-sm dark:bg-black focus:ring-primary-500 focus:border-primary-500 sm:max-w-xs sm:text-sm"
       :id="uuid"
       :aria-describedby="error ? `-error` : null"
       :aria-invalid="error ? true : null"

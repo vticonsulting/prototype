@@ -75,13 +75,17 @@ export default {
           label: this.$t('projects'),
         },
         {
+          name: 'calendar',
+          label: this.$t('calendar'),
+        },
+        {
           name: 'customers',
           label: this.$t('customers'),
         },
-        // {
-        //   name: 'users',
-        //   label: this.$t('users'),
-        // },
+        {
+          name: 'users',
+          label: this.$t('users'),
+        },
         {
           name: 'reports',
           label: this.$t('reports'),
@@ -176,9 +180,36 @@ export default {
             </RouterLink>
 
             <div
+              v-if="false"
               class="relative inline-flex items-center px-1 pt-1 text-sm font-medium whitespace-nowrap"
             >
-              <BaseDropdown :paths="['dashboard', 'profile', 'calendar']">{{ $t('settings') }}</BaseDropdown>
+              <BaseDropdown
+                :paths="['services', 'announcements', 'faq', 'team']"
+              >{{ $t('settings') }}</BaseDropdown>
+            </div>
+
+            <div
+              class="relative inline-flex items-center px-1 pt-1 text-sm font-medium whitespace-nowrap"
+            >
+              <ODropdown position="bottom-left" aria-role="list">
+                <button
+                  class="flex items-center justify-center p-1 rounded focus:outline-none"
+                  slot="trigger"
+                  slot-scope="{active}"
+                >
+                  <BaseIconSolid
+                    :name="active ? 'dots-vertical' : 'dots-horizontal'"
+                    class="text-gray-400"
+                  />
+                </button>
+
+                <ODropdownItem
+                  v-for="path in ['services', 'announcements', 'faq', 'team']"
+                  :key="path"
+                  @click="$router.push(path)"
+                  aria-role="listitem"
+                >{{ $t(path) }}</ODropdownItem>
+              </ODropdown>
             </div>
           </div>
         </div>

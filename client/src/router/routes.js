@@ -233,6 +233,11 @@ export default [
       import(/* webpackChunkName: "examples" */ '@/views/examples/form.vue'),
   },
   {
+    path: '/faq',
+    name: 'faq',
+    component: () => import(/* webpackChunkName: "faq" */ '@/views/faq.vue'),
+  },
+  {
     path: '/form',
     name: 'form',
     component: () => import(/* webpackChunkName: "form" */ '@/views/form.vue'),
@@ -286,7 +291,9 @@ export default [
     path: '/products',
     name: 'products',
     component: () =>
-      import(/* webpackChunkName: "products" */ '@/views/products/products.vue'),
+      import(
+        /* webpackChunkName: "products" */ '@/views/products/products.vue'
+      ),
     props: route => ({page: parseInt(route.query.page) || 1}),
   },
   {
@@ -300,6 +307,14 @@ export default [
     name: 'projects',
     component: () =>
       import(/* webpackChunkName: "projects" */ '@/views/projects/index.vue'),
+  },
+
+  {
+    path: '/services',
+    name: 'services',
+    component: () =>
+      import(/* webpackChunkName: "services" */ '@/views/services.vue'),
+    props: route => ({page: parseInt(route.query.page) || 1}),
   },
 
   {

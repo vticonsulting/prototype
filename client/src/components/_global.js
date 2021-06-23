@@ -22,6 +22,7 @@ import BaseBlankState from '@/components/base/BaseBlankState'
 import BaseBreadcrumb from '@/components/base/BaseBreadcrumb'
 import BaseCalendar from '@/components/base/BaseCalendar'
 import BaseChart from '@/components/base/BaseChart'
+import BaseDatepicker from '@/components/base/BaseDatepicker'
 import BaseDirectory from '@/components/base/BaseDirectory'
 import BaseDropdown from '@/components/base/BaseDropdown'
 import BaseIcon from '@/components/base/BaseIcon'
@@ -134,6 +135,7 @@ Vue.component('BaseBlankState', BaseBlankState)
 Vue.component('BaseBreadcrumb', BaseBreadcrumb)
 Vue.component('BaseCalendar', BaseCalendar)
 Vue.component('BaseChart', BaseChart)
+Vue.component('BaseDatepicker', BaseDatepicker)
 Vue.component('BaseDirectory', BaseDirectory)
 Vue.component('BaseDropdown', BaseDropdown)
 Vue.component('BaseIcon', BaseIcon)

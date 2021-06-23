@@ -1,77 +1,62 @@
-<script>
-import { categories, products } from '@/__mocks__'
-
-export default {
-  metaInfo() {
-    return {
-      title: this.$t('dashboard'),
-    }
-  },
-  data() {
-    return {
-      activeTab: 1,
-      categories,
-      products,
-      users: null,
-      value: 5,
-      isCardModalActive: false,
-      isFullwidth: false,
-      isImageModalActive: false,
-      modalOpen: false,
-      showNotifications: false,
-      showOverlay: false,
-      showSidebar: false,
-      events: [
-        {
-          title: 'event1',
-          start: '2010-01-01',
-        },
-        {
-          title: 'event2',
-          start: '2010-01-05',
-          end: '2010-01-07',
-        },
-        {
-          title: 'event3',
-          start: '2010-01-09T12:30:00',
-          allDay: false,
-        },
-      ],
-      isOpen: 0,
-      selected: new Date(),
-      showWeekNumber: false,
-      locale: undefined, // Browser locale
-    }
-  },
-  computed: {
-    collapses() {
-      return [
-        {
-          title: `${this.$t('question')} 1`,
-          text: `${this.$t('answer')} 1`,
-        },
-        {
-          title: `${this.$t('question')} 2`,
-          text: `${this.$t('answer')} 2`,
-        },
-        {
-          title: `${this.$t('question')} 3`,
-          text: `${this.$t('answer')} 3`,
-        },
-      ]
-    },
-  },
-}
-</script>
-
 <template>
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <section class="m-4">
-      <BaseInput label="Search by Project or Claim Number" type="text" />
+      <StatsDisplay />
     </section>
 
-    <section class="m-4">
-      <StatsDisplay />
+    <!-- <section>Calendar</section>
+
+    <section>
+      <h2>Announcements</h2>
+Title
+      Description
+      Publish Date
+      Full Name
+    </section>
+
+    <section>
+      <h2>Past Due</h2>
+      <div>2435 appointments past due</div>
+    </section>
+
+    <section>
+      <h2>Today</h2>
+
+      <div>No appointments from today</div>
+    </section>
+
+    <section>
+      <h2>Tomorrow</h2>
+
+      <div>No appointments for tomorrow</div>
+    </section>
+
+    <section>
+      <h2>Recent Activity</h2>
+
+      <div>No recent activities</div>
+    </section>-->
+
+    <section class="grid grid-cols-12 gap-4 m-4">
+      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-8">
+        <column-chart :data="[['Sun', 32], ['Mon', 46], ['Tue', 28]]" />
+      </article>
+      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-4">
+        <h2 class="text-lg font-medium">Projects by Status</h2>
+        <nav class="mt-4 space-y-1" aria-label="Sidebar">
+          <a
+            v-for="status in projectStatuses"
+            :key="status.name"
+            class="flex items-center px-3 text-sm font-medium rounded-md"
+          >
+            <span class="truncate">{{ status.name }}</span>
+            <span
+              v-if="status.count"
+              class="inline-block px-3 ml-auto text-xs rounded-full"
+            >{{ status.count }}</span>
+          </a>
+        </nav>
+      </article>
     </section>
 
     <section class="m-4">
@@ -401,3 +386,70 @@ export default {
     </OSidebar>
   </main>
 </template>
+
+<script>
+import { categories, products, projectStatuses } from '@/__mocks__'
+
+export default {
+  metaInfo() {
+    return {
+      title: this.$t('dashboard'),
+    }
+  },
+  data() {
+    return {
+      selectedOption: null,
+      options: ['list', 'of', 'options'],
+      categories,
+      products,
+      projectStatuses,
+      users: null,
+      value: 5,
+      isCardModalActive: false,
+      isFullwidth: false,
+      isImageModalActive: false,
+      modalOpen: false,
+      showNotifications: false,
+      showOverlay: false,
+      showSidebar: false,
+      events: [
+        {
+          title: 'event1',
+          start: '2010-01-01',
+        },
+        {
+          title: 'event2',
+          start: '2010-01-05',
+          end: '2010-01-07',
+        },
+        {
+          title: 'event3',
+          start: '2010-01-09T12:30:00',
+          allDay: false,
+        },
+      ],
+      selected: new Date(),
+      showWeekNumber: false,
+      locale: undefined, // Browser locale
+    }
+  },
+  computed: {
+    collapses() {
+      return [
+        {
+          title: `${this.$t('question')} 1`,
+          text: `${this.$t('answer')} 1`,
+        },
+        {
+          title: `${this.$t('question')} 2`,
+          text: `${this.$t('answer')} 2`,
+        },
+        {
+          title: `${this.$t('question')} 3`,
+          text: `${this.$t('answer')} 3`,
+        },
+      ]
+    },
+  },
+}
+</script>

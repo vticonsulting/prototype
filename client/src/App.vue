@@ -24,6 +24,7 @@ import TheNavbar from '@/components/TheNavbar'
 import NotificationContainer from '@/components/NotificationContainer.vue'
 import '@progress/kendo-theme-default/dist/all.css'
 
+
 export default defineComponent({
   name: 'App',
   metaInfo() {
@@ -75,3 +76,7 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss">
+@import "vue-select/src/scss/vue-select.scss";
+</style>
