@@ -4,6 +4,8 @@
       <StatsDisplay />
     </section>
 
+    <!-- <BaseMap /> -->
+
     <!-- <section>Calendar</section>
 
     <section>
@@ -38,16 +40,21 @@ Title
     </section>-->
 
     <section class="grid grid-cols-12 gap-4 m-4">
-      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-8">
+      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-6 lg:col-span-4">
+        <UsaMap class="text-primary-400" />
+      </article>
+
+      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-6 lg:col-span-4">
         <column-chart :data="[['Sun', 32], ['Mon', 46], ['Tue', 28]]" />
       </article>
       <article class="p-4 bg-white rounded shadow col-span-full md:col-span-4">
         <h2 class="text-lg font-medium">Projects by Status</h2>
         <nav class="mt-4 space-y-1" aria-label="Sidebar">
           <a
+            href="#"
             v-for="status in projectStatuses"
             :key="status.name"
-            class="flex items-center px-3 text-sm font-medium rounded-md"
+            class="flex items-center px-3 text-sm font-medium rounded-md hover:text-white hover:bg-primary-400"
           >
             <span class="truncate">{{ status.name }}</span>
             <span
@@ -389,6 +396,7 @@ Title
 
 <script>
 import { categories, products, projectStatuses } from '@/__mocks__'
+import billingStatusType from '@/__mocks__/BillingStatusType.json'
 
 export default {
   metaInfo() {
@@ -400,6 +408,7 @@ export default {
     return {
       selectedOption: null,
       options: ['list', 'of', 'options'],
+      billingStatusType,
       categories,
       products,
       projectStatuses,

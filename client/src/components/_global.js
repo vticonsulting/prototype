@@ -94,6 +94,7 @@ import SvgUsa from '@/components/elements/SvgUsa'
 import TaskList from '@/components/patterns/TaskList'
 import UpcomingItems from '@/components/patterns/UpcomingItems'
 import UpcomingTasks from '@/components/patterns/UpcomingTasks'
+import UsaMap from '@/components/UsaMap'
 import WelcomePanel from '@/components/patterns/WelcomePanel'
 
 // Templates
@@ -184,6 +185,7 @@ Vue.component('NotificationsButton', NotificationsButton)
 Vue.component('OverlaySlideOver', OverlaySlideOver)
 Vue.component('PaymentDetails', PaymentDetails)
 Vue.component('UsersTable', UsersTable)
+Vue.component('UsaMap', UsaMap)
 Vue.component('Plan', Plan)
 Vue.component('PrivacyPolicyButton', PrivacyPolicyButton)
 Vue.component('PrivacyPolicyModal', PrivacyPolicyModal)

@@ -17,7 +17,7 @@
 /* @import './components/field.css'; */
 /* @import './components/radio.css'; */
 /* @import './components/select.css'; */
-/* @import './components/table.css'; */
+@import './components/table.css';
 /* @import './components/tabs.css'; */
 
 @import './components/alert.css';

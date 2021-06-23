@@ -80,6 +80,12 @@ export default [
       ),
   },
   {
+    path: '/billing',
+    name: 'billing',
+    component: () =>
+      import(/* webpackChunkName: "billing" */ '@/views/billing.vue'),
+  },
+  {
     path: '/board',
     name: 'board',
     component: Board,

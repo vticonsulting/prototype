@@ -33,18 +33,18 @@ const store = new Vuex.Store({
     event,
     message,
     notification,
-    products
+    products,
   },
 
   state: {
     isMenuOpen: false,
     events: [
-      {
-        id: 10,
-        title: 'Gratitude, Wisdom, Care, Courage, Grit, Celebration',
-        date: new Date(),
-        allDay: true,
-      },
+      // {
+      //   id: 10,
+      //   title: 'Gratitude, Wisdom, Care, Courage, Grit, Celebration',
+      //   date: new Date(),
+      //   allDay: true,
+      // },
       {
         id: 20,
         title: 'Backlog Grooming/Story Time',
@@ -52,7 +52,7 @@ const store = new Vuex.Store({
       },
       {id: 30, title: 'Sprint Planning', start: addDays(new Date(), 2)},
       {id: 40, title: 'Release day', date: '2021-01-30'},
-      {id: 50, title: 'The Future of Frontend', date: '2021-02-05'},
+      // {id: 50, title: 'The Future of Frontend', date: '2021-02-05'},
     ],
     quotes: [
       {
@@ -62,8 +62,7 @@ const store = new Vuex.Store({
       },
       {
         id: 2,
-        text:
-          'There is a destiny that makes us brothers; none goes his way alone. What we put into the lives of others, comes back into our own.',
+        text: 'There is a destiny that makes us brothers; none goes his way alone. What we put into the lives of others, comes back into our own.',
         attribution: 'Edwin Markham',
       },
       {

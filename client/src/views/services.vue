@@ -1,12 +1,22 @@
 <script>
 import serviceTypes from '@/__mocks__/service_types.json'
+import regions from '@/__mocks__/ServiceRegion.json'
+import managers from '@/__mocks__/ServiceRegionManager.json'
+import areas from '@/__mocks__/ServiceArea.json'
+
+const onlyUnique = (value, index, self) => self.indexOf(value) === index;
 
 export default {
   data() {
     return {
+      regionName: '',
+      areas,
+      managers,
       serviceTypes,
       name: '',
-      selected: null,
+      selectedServiceType: null,
+      regions,
+      selectedTerritories: [],
     }
   },
   computed: {
@@ -19,27 +29,62 @@ export default {
             .indexOf(this.name.toLowerCase()) >= 0
         )
       })
+    },
+    sortedAreas() {
+      return [...this.areas].sort((a, b) => (a.Name > b.Name) ? 1 : -1).map(area => area.Name).filter(onlyUnique)
+    },
+    sortedRegions() {
+      return [...this.regions].sort((a, b) => (a.Name > b.Name) ? 1 : -1).map(area => area.Name).filter(onlyUnique)
     }
   }
 }
 </script>
 <template>
-  <main class="flex-1">
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>Services Territories and Areas</BasePageHeading>
 
-    <section class="p-4">
-      <OField label="Select Service Type">
-        <OAutocomplete
-          :data="filteredServiceTypes"
-          v-model="name"
-          @select="option => selected = option"
-          keep-first
-          open-on-focus
-          placeholder="e.g. Ladder Assist"
-          field="Name"
-        />
-      </OField>
+    <section class="p-4 m-4 bg-white rounded shadow">
+      <div class="flex space-x-4">
+        <OButton variant="primary">Edit Territory</OButton>
+        <OButton variant="primary">Add Service Area</OButton>
+        <OButton variant="primary">Edit Service Area</OButton>
+      </div>
 
+      <div class="mt-8">
+        <OField label="Select Service Type">
+          <OAutocomplete
+            :data="filteredServiceTypes"
+            v-model="name"
+            @select="option => selectedServiceType = option"
+            keep-first
+            open-on-focus
+            placeholder="e.g. Ladder Assist"
+            field="Name"
+          />
+        </OField>
+      </div>
+
+      <div class="grid grid-cols-12 gap-8 mt-8">
+        <div class="col-span-full sm:col-span-6">
+          <label class="block text-sm font-medium text-gray-700" for="region">Service Territories</label>
+          <select class="w-full" name="region" id="region" size="10" multiple>
+            <option v-for="region in sortedRegions" :key="region.Id">{{ region }}</option>
+          </select>
+        </div>
+        <div class="col-span-full sm:col-span-6">
+          <label
+            class="block text-sm font-medium text-gray-700"
+            for="area"
+          >Service Areas in that Territory</label>
+          <select class="w-full" name="area" id="area" size="10" multiple>
+            <option v-for="area in sortedAreas" :key="area.Id">{{ area.Name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- <select name="selectedTerritories" size="10" multiple>
+        <option value v-for="option in selectedTerritories">{{ option }}</option>
+      </select>-->
       <!-- <pre>
         {{ selected }}
       Service Types
@@ -74,6 +119,49 @@ export default {
       <button>Save</button>
       <button>Cancel</button>
       </pre>-->
+    </section>
+
+    <section class="p-8 m-4 bg-white rounded shadow">
+      <h2 class="text-lg font-medium">New Service Territory</h2>
+
+      <form class="mt-8" action>
+        <div>
+          <OField label="Name">
+            <OInput v-model="regionName" expanded />
+          </OField>
+        </div>
+        <div class="mt-8">
+          <label class="block text-sm font-medium text-gray-700" for="area">Service Director(s)</label>
+        </div>
+        <div class="grid grid-cols-12 gap-8 mt-8">
+          <div class="col-span-full sm:col-span-6">
+            <label class="block text-sm font-medium text-gray-700" for="region">Territory Managers</label>
+            <select class="w-full" name="region" id="region" size="10" multiple>
+              <option v-for="region in sortedRegions" :key="region.Id">{{ region.Name }}</option>
+            </select>
+          </div>
+          <div class="col-span-full sm:col-span-6">
+            <label
+              class="block text-sm font-medium text-gray-700"
+              for="area"
+            >Territory Manager(s) Assigned to this Territory</label>
+            <select class="w-full" name="area" id="area" size="10" multiple>
+              <option v-for="area in sortedAreas" :key="area.Id">{{ area.Name }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-8">
+          <o-field label="Service Lead" variant="danger" message="Selected subject is wrong">
+            <o-select placeholder="Select a subject">
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+            </o-select>
+          </o-field>
+        </div>
+        <div class="mt-8">
+          <OButton variant="primary">Save</OButton>
+        </div>
+      </form>
     </section>
   </main>
 </template>

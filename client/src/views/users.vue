@@ -3,7 +3,6 @@ import { watchEffect } from '@vue/composition-api'
 import UserService from '@/services/UserService'
 
 export default {
-  name: 'PersonList',
   props: {
     page: {
       type: Number,
@@ -30,7 +29,7 @@ export default {
   created() {
     watchEffect(() => {
       this.users = []
-      UserService.getUsers(this.perPage, this.page)
+      UserService.getUsers()
         .then(response => {
           this.users = response.data
           this.totalUsers = response.headers['x-total-count']
@@ -40,6 +39,9 @@ export default {
         })
     })
   },
+  mounted() {
+    console.log({ users: this.users })
+  }
 }
 </script>
 <template>
@@ -102,13 +104,6 @@ export default {
             sortable
             label="Last Name"
           >{{ props.row.lastName }}</OTableColumn>
-          <OTableColumn
-            v-slot="props"
-            field="homeChurch"
-            searchable
-            sortable
-            label="Home Church"
-          >{{ props.row.homeChurch }}</OTableColumn>
           <OTableColumn
             v-slot="props"
             field="email"

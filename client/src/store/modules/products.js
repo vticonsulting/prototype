@@ -1,6 +1,6 @@
 import axios from 'axios'
 import API from '../config'
-import { parseItem, parseList } from './action-utils'
+import {parseItem, parseList} from './action-utils'
 
 import {
   ADD_PRODUCT,
@@ -22,7 +22,7 @@ export default {
       state.products.unshift(product)
     },
     [UPDATE_PRODUCT](state, product) {
-      const index = state.products.findIndex((v) => v.id === product.id)
+      const index = state.products.findIndex(v => v.id === product.id)
       state.products.splice(index, 1, product)
       state.products = [...state.products]
     },
@@ -30,12 +30,12 @@ export default {
       state.products = products
     },
     [DELETE_PRODUCT](state, product) {
-      state.products = [...state.products.filter((p) => p.id !== product.id)]
+      state.products = [...state.products.filter(p => p.id !== product.id)]
     },
   },
   actions: {
     // actions let us get to ({ state, getters, commit, dispatch }) {
-    async getProductsAction({ commit }) {
+    async getProductsAction({commit}) {
       try {
         const response = await axios.get(`${API}/products`)
         const products = parseList(response)
@@ -45,7 +45,7 @@ export default {
         captains.error(error)
       }
     },
-    async deleteProductAction({ commit }, product) {
+    async deleteProductAction({commit}, product) {
       try {
         const response = await axios.delete(`${API}/products/${product.id}`)
         parseItem(response, 200)
@@ -55,11 +55,11 @@ export default {
         captains.error(error)
       }
     },
-    async updateProductAction({ commit }, product) {
+    async updateProductAction({commit}, product) {
       try {
         const response = await axios.put(
           `${API}/products/${product.id}`,
-          product
+          product,
         )
         const updatedproduct = parseItem(response, 200)
         commit(UPDATE_PRODUCT, updatedproduct)
@@ -68,7 +68,7 @@ export default {
         captains.error(error)
       }
     },
-    async addProductAction({ commit }, product) {
+    async addProductAction({commit}, product) {
       try {
         const response = await axios.post(`${API}/products`, product)
         const addedProduct = parseItem(response, 201)
@@ -80,6 +80,6 @@ export default {
     },
   },
   getters: {
-    products: (state) => state.products,
+    products: state => state.products,
   },
 }

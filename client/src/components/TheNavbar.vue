@@ -83,6 +83,10 @@ export default {
           label: this.$t('customers'),
         },
         {
+          name: 'billing',
+          label: this.$t('billing'),
+        },
+        {
           name: 'users',
           label: this.$t('users'),
         },
