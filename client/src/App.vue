@@ -35,7 +35,7 @@ export default defineComponent({
       // all titles will be injected into this template
       //   titleTemplate: chunk =>
       //     locale === 'nl-NL' ? `${chunk} - Welkom` : `${chunk} - Welcome`,
-      titleTemplate: chunk => (chunk ? `${chunk} - CLI` : 'CLI'),
+      titleTemplate: chunk => (chunk ? `${chunk} - Hancock UI` : 'Hancock UI'),
 
       htmlAttrs: {
         lang: 'en',

@@ -1,5 +1,7 @@
 # @vticonsulting/prototype
 
+https://bit.ly/exemplar-next
+
 Azure Static Web App Demo (Vue App)
 
 ## Directory Structure

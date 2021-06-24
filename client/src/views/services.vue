@@ -43,14 +43,20 @@ export default {
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>Services Territories and Areas</BasePageHeading>
 
-    <section class="p-4 m-4 bg-white rounded shadow">
+    <section class="p-4 m-4 bg-white rounded shadow dark:bg-black">
       <div class="flex space-x-4">
-        <OButton variant="primary">Edit Territory</OButton>
-        <OButton variant="primary">Add Service Area</OButton>
-        <OButton variant="primary">Edit Service Area</OButton>
+        <OButton variant="primary">
+          <span class="whitespace-nowrap">Add Service Area</span>
+        </OButton>
+        <OButton variant="primary">
+          <span class="whitespace-nowrap">Edit Territory</span>
+        </OButton>
+        <OButton variant="primary">
+          <span class="whitespace-nowrap">Edit Service Area</span>
+        </OButton>
       </div>
 
-      <div class="mt-8">
+      <div class="mt-8" v-if="false">
         <OField label="Select Service Type">
           <OAutocomplete
             :data="filteredServiceTypes"
@@ -66,17 +72,32 @@ export default {
 
       <div class="grid grid-cols-12 gap-8 mt-8">
         <div class="col-span-full sm:col-span-6">
-          <label class="block text-sm font-medium text-gray-700" for="region">Service Territories</label>
-          <select class="w-full" name="region" id="region" size="10" multiple>
+          <label
+            class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+            for="region"
+          >Service Territories</label>
+          <select
+            class="w-full border-gray-400 rounded dark:bg-black"
+            name="region"
+            id="region"
+            size="10"
+            multiple
+          >
             <option v-for="region in sortedRegions" :key="region.Id">{{ region }}</option>
           </select>
         </div>
         <div class="col-span-full sm:col-span-6">
           <label
-            class="block text-sm font-medium text-gray-700"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-200"
             for="area"
           >Service Areas in that Territory</label>
-          <select class="w-full" name="area" id="area" size="10" multiple>
+          <select
+            class="w-full border-gray-400 dark:bg-black"
+            name="area"
+            id="area"
+            size="10"
+            multiple
+          >
             <option v-for="area in sortedAreas" :key="area.Id">{{ area.Name }}</option>
           </select>
         </div>
@@ -121,7 +142,7 @@ export default {
       </pre>-->
     </section>
 
-    <section class="p-8 m-4 bg-white rounded shadow">
+    <section class="p-8 m-4 bg-white rounded shadow dark:bg-black">
       <h2 class="text-lg font-medium">New Service Territory</h2>
 
       <form class="mt-8" action>
@@ -131,28 +152,34 @@ export default {
           </OField>
         </div>
         <div class="mt-8">
-          <label class="block text-sm font-medium text-gray-700" for="area">Service Director(s)</label>
+          <label
+            class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+            for="area"
+          >Service Director(s)</label>
         </div>
         <div class="grid grid-cols-12 gap-8 mt-8">
           <div class="col-span-full sm:col-span-6">
-            <label class="block text-sm font-medium text-gray-700" for="region">Territory Managers</label>
-            <select class="w-full" name="region" id="region" size="10" multiple>
+            <label
+              class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+              for="region"
+            >Territory Managers</label>
+            <select class="w-full dark:bg-black" name="region" id="region" size="10" multiple>
               <option v-for="region in sortedRegions" :key="region.Id">{{ region.Name }}</option>
             </select>
           </div>
           <div class="col-span-full sm:col-span-6">
             <label
-              class="block text-sm font-medium text-gray-700"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-200"
               for="area"
             >Territory Manager(s) Assigned to this Territory</label>
-            <select class="w-full" name="area" id="area" size="10" multiple>
+            <select class="w-full dark:bg-black" name="area" id="area" size="10" multiple>
               <option v-for="area in sortedAreas" :key="area.Id">{{ area.Name }}</option>
             </select>
           </div>
         </div>
         <div class="mt-8">
-          <o-field label="Service Lead" variant="danger" message="Selected subject is wrong">
-            <o-select placeholder="Select a subject">
+          <o-field label="Service Lead" message="Field message text">
+            <o-select expanded placeholder="Select a subject">
               <option value="1">Option 1</option>
               <option value="2">Option 2</option>
             </o-select>

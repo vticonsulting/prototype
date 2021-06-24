@@ -1,22 +1,77 @@
-RegionController
+# RegionController
 
-CreateModel
-GetServiceAreasForRegion JsonResult
+- Permissions ViewRegionsMenu
 
-Index
-CreateRegion
-CreateRegion
-EditRegion
-CreateServiceArea
-GetAvailableTechs
+## CreateModel(modelType)
 
-ServiceAreaCapacity
-ServiceAreaCapacityRead
-ServiceAreaCapacityCreate
-ServiceAreaCapacityUpdate
-ServiceAreaCapacityDelete
+- return `GetServiceRegionSetupUCC()`, if ServiceRegionSetupUCC
+- return `GetReadOnlyRoot()`, if EditServiceRegionUCC
+- return `GetServiceAreaSetupUCC()`, if ServiceAreaSetupUCC
+- else return `Activator.CreateInstance(modelType)`
 
-GetCompanyList
+
+## GetServiceAreasForRegion JsonResult
+
+## Index (GET /Region) ""
+
+### Actions
+
+- New Service Territory
+  - Validations
+    - Name is required
+    -
+
+## CreateRegion (GET /Region/CreateRegion)
+
+Redirects to Index
+
+- Create/Edit
+
+## CreateRegion(model, managerIds) (POST /Region/CreateRegion)
+
+- Validates
+- Converts managerIds to List
+- Remove `RegionManagerId`, if List empty
+- `GetServiceRegionMangerList(model.ServiceRegionId)`
+- Loop through managerIds, if `ServiceRegionManagerList` contains
+
+
+## EditRegion(id?) (POST /RegionEditRegion)
+
+- if `id` return View for region `GetReadOnlyRoot(id.Value)`
+- otherwise redirect to `Index`
+
+## EditRegion(model, managerIds) (POST /Region/EditRegion)
+
+- if `ServiceRegion` is deleted or inActive
+  - `ROServiceAreaList.GetROServiceAreaList(model.ServiceRegion.Id)`
+  - `ProjectsList.GetNameValueList(modelServiceAreas.Select(sa => sa.Id).ToList())`
+
+## CreateServiceArea (GET /Region/CreateServiceArea)
+
+- Permissions (AddServiceArea)
+
+## CreateServiceArea(model, techIds, formCollection) (POST /Region/CreateServiceArea)
+
+- Permissions (AddServiceArea)
+
+
+## GetAvailableTechs(regionId, serviceAreaId) (POST)
+
+-
+
+
+## ServiceAreaCapacity
+## ServiceAreaCapacityRead(request, serviceAreaId, companyId)
+
+- gridModels
+-
+
+## ServiceAreaCapacityCreate()
+## ServiceAreaCapacityUpdate
+## ServiceAreaCapacityDelete
+
+## GetCompanyList
 
 GetRegionManagerAndLead
 GetAvailableRegionManagers
@@ -44,9 +99,3 @@ GetActiveServiceRegionSetupUCC(active)
     - ServiceRegion
     - RegionLeads
     - ServiceDirectors
-
-
-anjaneyulu.kalyanapu@hancockclaims.com
-smatthews@hancockclaims.com
-kdharmarajan@hancockclaims.com
-mnogueira@hancockclaims.com

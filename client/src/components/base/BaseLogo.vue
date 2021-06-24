@@ -548,6 +548,35 @@ export default defineComponent({
       <path d="M34.5981 11.9385L53.2467 0L42.8182 0L29.6906 8.73846L34.5981 11.9385Z" fill="white" />
     </svg>
 
+    <svg
+      v-if="name === 'exemplar-x'"
+      width="61"
+      height="31"
+      viewBox="0 0 61 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M59.2063 21.051H43.6046V23.9999H59.2063V21.051Z" fill="#6F727D" />
+      <path d="M59.2063 14.1122H43.6046V17.0612H59.2063V14.1122Z" fill="#6F727D" />
+      <path d="M59.2063 7H43.6046V9.94898H59.2063V7Z" fill="#6F727D" />
+      <path d="M17.6017 21.051H2V23.9999H17.6017V21.051Z" fill="#6F727D" />
+      <path d="M17.6017 14.1122H2V17.0612H17.6017V14.1122Z" fill="#6F727D" />
+      <path d="M17.6017 7H2V9.94898H17.6017V7Z" fill="#6F727D" />
+      <path d="M24.0878 15.4205L0 0H13.4701L30.4267 11.2872L24.0878 15.4205Z" fill="currentColor" />
+      <path
+        d="M36.7656 15.5795L60.8534 31L47.3832 31L30.4267 19.7128L36.7656 15.5795Z"
+        fill="currentColor"
+      />
+      <path
+        d="M24.0878 15.5795L-3.05176e-05 31H13.4701L30.4266 19.7128L24.0878 15.5795Z"
+        fill="currentColor"
+      />
+      <path
+        d="M36.7656 15.4205L60.8533 0L47.3832 0L30.4267 11.2872L36.7656 15.4205Z"
+        fill="currentColor"
+      />
+    </svg>
+
     <!-- GA SPS -->
     <svg
       v-if="name === 'ga-sps'"

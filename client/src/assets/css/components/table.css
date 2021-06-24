@@ -1,6 +1,6 @@
 @layer base {
   .table thead {
-    @apply bg-gray-50;
+    @apply bg-gray-50 dark:bg-gray-900;
   }
 
   .table.is-striped tbody tr:nth-child(2n) {
@@ -20,7 +20,6 @@
   .table td.is-centered {
     @apply text-center;
   }
-
 
   :root {
     --oruga-table-narrow-padding: 0.25em 0.5em;
@@ -73,5 +72,4 @@
     --oruga-table-th-padding
     --oruga-table-th-wrap-icon-margin */
   }
-
 }

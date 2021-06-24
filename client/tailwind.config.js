@@ -51,7 +51,7 @@ module.exports = {
         ],
       },
       colors: {
-        primary: colors['blue-gem'],
+        primary: colors.mineShaft,
         secondary: colors.deepTeal,
         tertiary: colors.peachSchnapps,
         orange: colors.amber,

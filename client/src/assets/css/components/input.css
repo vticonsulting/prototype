@@ -3,7 +3,7 @@
 }
 
 .input-field .input {
-  @apply block w-full px-3 py-2 mt-1 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500;
+  @apply block w-full px-3 py-2 mt-1 dark:bg-black border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500;
 }
 
 .input-field.is-expanded .input {

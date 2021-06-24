@@ -3,7 +3,7 @@
     <BasePageHeading>{{ $t('profile') }}</BasePageHeading>
 
     <section class="p-8">
-      <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+      <div v-if="false" class="lg:grid lg:grid-cols-12 lg:gap-x-5">
         <aside class="px-2 py-6 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
           <nav class="space-y-1">
             <!-- Current: "bg-gray-50 text-primary-700 hover:text-primary-700 hover:bg-white", Default: "text-gray-900 hover:text-gray-900 hover:bg-gray-50" -->

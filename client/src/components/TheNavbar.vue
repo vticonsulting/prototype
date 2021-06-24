@@ -148,11 +148,11 @@ export default {
             <RouterLink
               @contextmenu.native="handleRightClick"
               class="flex items-center justify-center"
-              :to="{ name: 'dashboard' }"
+              to="/"
             >
               <BaseLogo
                 class="hidden text-primary-500 dark:text-primary-100 md:block"
-                name="hancock-h"
+                name="exemplar-x"
               />
               <BaseLogo
                 class="origin-left transform scale-50 text-primary-500 dark:text-primary-100 md:hidden"

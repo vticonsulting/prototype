@@ -14,62 +14,120 @@
     </BasePageHeading>
 
     <section class="p-4">
-      <OTable striped :data="customers" :columns="columns" />
+      <!-- <OTable narrowed paginated hoverable striped checkable :data="customers" :columns="columns" /> -->
+
+      <OField label="Filter by name">
+        <OInput type="text" v-model="filters.name.value" />
+      </OField>
+
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+              <v-table
+                class="min-w-full divide-y divide-gray-200"
+                :data="customers"
+                :filters="filters"
+              >
+                <thead class="bg-gray-50" slot="head">
+                  <v-th
+                    scope="col"
+                    class="flex px-6 py-3 space-x-2 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                    sortKey="Name"
+                  >
+                    <span>Name</span>
+                  </v-th>
+                </thead>
+                <tbody
+                  class="bg-white divide-y divide-gray-200"
+                  slot="body"
+                  slot-scope="{displayData}"
+                >
+                  <tr v-for="row in displayData" :key="row.id">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">{{ row.Name }}</div>
+                          <div
+                            class="text-sm text-gray-500"
+                          >{{ row.City }}, {{ row.State }} {{ row.PostalCode }}</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </v-table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <OTable paginated :data="customers">
+        <OTableColumn label="Customers" searchable field="Name" v-slot="props">{{ props.row.Name }}</OTableColumn>
+      </OTable>
     </section>
   </main>
 </template>
 
 <script>
-import customers from '@/__mocks__/customers.json'
+import customers from '@/__mocks__/vwCustomerList.json'
 
 export default {
   data() {
     return {
       customers,
+      filters: {
+        name: { value: '', keys: ['Name'] }
+      },
       columns: [
         // {
-        //   field: 'id',
+        //   field: 'Id',
         //   label: 'ID',
         //   width: '40',
         //   numeric: true
         // },
         {
-          field: 'fullName',
+          field: 'Name',
           label: 'Customer',
-          sortable: true
+          sortable: true,
+          searchable: true,
         },
         {
-          field: 'shortName',
-          label: 'Short Name'
+          field: 'ShortName',
+          label: 'Short Name',
+          sortable: true,
+          searchable: true,
         },
         {
-          field: 'streetAddress1',
-          label: 'Street Address'
+          field: 'StreetAddress1',
+          label: 'Street Address',
+          sortable: true,
+          searchable: true,
         },
         {
-          field: 'city',
-          label: 'City'
+          field: 'City',
+          label: 'City',
+          sortable: true,
+          searchable: true
         },
         {
-          field: 'stateId',
-          label: 'State'
+          field: 'State',
+          label: 'State',
+          sortable: true,
+          searchable: true,
         },
         {
-          field: 'postalCode',
-          label: 'Zip'
+          field: 'PostalCode',
+          label: 'Zip',
+          sortable: true,
+          searchable: true,
         },
         {
-          field: 'billingContactId',
-          label: 'Contact'
+          field: 'BillingContactName',
+          label: 'Contact',
+          sortable: true,
+          searchable: true,
         },
-        {
-          field: 'createdBy',
-          label: 'Created By'
-        },
-        {
-          field: 'isActive',
-          label: 'Is Active?'
-        }
       ]
     }
   }

@@ -49,7 +49,7 @@ export default {
     <BasePageHeader>{{ $t('users') }}</BasePageHeader>
 
     <SectionWrapper class="p-8 users">
-      <div class>
+      <div v-if="false">
         <!-- <PersonCard v-for="person in users" :key="person.id" :person="person" /> -->
 
         <div class="flex items-center justify-between">

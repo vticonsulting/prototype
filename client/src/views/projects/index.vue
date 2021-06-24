@@ -6,6 +6,15 @@ import { DropDownList } from '@progress/kendo-vue-dropdowns'
 import { Window } from '@progress/kendo-vue-dialogs'
 import '@progress/kendo-theme-default/dist/all.css'
 
+const tabs = [
+  { name: 'Active', href: '#', current: true },
+  { name: 'Call Queue', href: '#', current: false },
+  { name: 'Schedule', href: '#', current: false },
+  { name: 'Complete', href: '#', current: false },
+  { name: 'Pending', href: '#', current: false },
+  { name: 'Billed', href: '#', current: false },
+]
+
 export default {
   components: {
     DropDownList,
@@ -14,7 +23,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.$t('dashboard'),
+      title: this.$t('billing'),
     }
   },
   data() {
@@ -24,6 +33,7 @@ export default {
       defaultItems: { CategoryID: null, CategoryName: "Product categories" },
       dropdownlistCategory: null,
       products,
+      tabs,
       users: null,
       value: 5,
       isFullwidth: false,
@@ -201,35 +211,85 @@ Escalations
 Reschedules
     -->
 
-    <section class="p-4 m-4 bg-white rounded">
-      <DropDownList
-        :data-items="categories"
-        :data-item-key="'CategoryID'"
-        :text-field="'CategoryName'"
-        :default-item="defaultItems"
-        @change="handleDropDownChange"
-      />
-
-      <article class="mt-4">
-        <Grid
-          :data-items="dataResult"
-          :pageable="pageable"
-          :sortable="sortable"
-          :sort="sort"
-          :take="take"
-          :skip="skip"
-          :columns="columns"
-          @datastatechange="dataStateChange"
-          @rowclick="rowClick"
-          :style="{ height: '400px' }"
-        >
-          <template v-slot:discontinuedTemplate="{ props }">
-            <td colspan="1">
-              <input type="checkbox" :checked="props.dataItem.Discontinued" disabled="disabled" />
-            </td>
+    <section class="p-4 m-4 bg-white rounded dark:bg-black">
+      <OTabs expanded>
+        <OTabItem v-for="tab in tabs" :key="tab.name">
+          <template slot="header">
+            <h2 class="text-lg">{{ tab.name }}</h2>
           </template>
-        </Grid>
-      </article>
+
+          <article class="mt-4">
+            <h2 class="text-lg font-medium">{{ tab.name }}</h2>
+
+            <div class="mt-4">
+              <DropDownList
+                :data-items="categories"
+                :data-item-key="'CategoryID'"
+                :text-field="'CategoryName'"
+                :default-item="defaultItems"
+                @change="handleDropDownChange"
+              />
+            </div>
+
+            <div class="mt-4">
+              <Grid
+                :data-items="dataResult"
+                :pageable="pageable"
+                :sortable="sortable"
+                :sort="sort"
+                :take="take"
+                :skip="skip"
+                :columns="columns"
+                @datastatechange="dataStateChange"
+                @rowclick="rowClick"
+                :style="{ height: '400px' }"
+              >
+                <template v-slot:discontinuedTemplate="{ props }">
+                  <td colspan="1">
+                    <input
+                      type="checkbox"
+                      :checked="props.dataItem.Discontinued"
+                      disabled="disabled"
+                    />
+                  </td>
+                </template>
+              </Grid>
+            </div>
+          </article>
+        </OTabItem>
+      </OTabs>
+
+      <header>
+        <div class="sm:hidden">
+          <label for="tabs" class="sr-only">Select a tab</label>
+          <select
+            id="tabs"
+            name="tabs"
+            class="block w-full py-2 pl-3 pr-10 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          >
+            <option v-for="tab in tabs" :key="tab.name" :selected="tab.current">{{ tab.name }}</option>
+          </select>
+        </div>
+        <div class="hidden sm:block">
+          <div class="border-b border-gray-200">
+            <nav class="flex -mb-px space-x-8" aria-label="Tabs">
+              <a
+                v-for="tab in tabs"
+                :key="tab.name"
+                href="#"
+                :class="[tab.current ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200', 'whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm']"
+                :aria-current="tab.current ? 'page' : undefined"
+              >
+                {{ tab.name }}
+                <span
+                  v-if="tab.count"
+                  :class="[tab.current ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-100 text-gray-900', 'hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block']"
+                >{{ tab.count }}</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
     </section>
 
     <div

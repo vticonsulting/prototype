@@ -101,7 +101,8 @@ Vue.use(Oruga, {
   // },
   table: {
     override: true,
-    wrapperClass: 'overflow-hidden bg-white lg:p-4 rounded shadow',
+    wrapperClass:
+      'overflow-hidden bg-white dark:bg-black lg:p-4 rounded shadow',
     borderedClass: 'is-bordered',
     hoverableClass: 'is-hoverable',
     narrowedClass: 'is-narrowed',
