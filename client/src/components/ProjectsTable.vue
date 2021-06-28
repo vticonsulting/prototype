@@ -44,7 +44,7 @@
           selectedClass="table-info"
           @selectionChanged="selectedRows = $event"
           :currentPage.sync="currentPage"
-          :pageSize="20"
+          :pageSize="5"
           @totalPagesChanged="totalPages = $event"
           :data="projects"
           class="min-w-full table-fixed"
@@ -127,7 +127,9 @@
           </tbody>
         </v-table>
 
-        <!-- <smart-pagination :currentPage.sync="currentPage" :totalPages="totalPages" /> -->
+        <div class="my-4">
+          <smart-pagination :currentPage.sync="currentPage" :totalPages="totalPages" />
+        </div>
       </div>
     </div>
   </section>
@@ -152,8 +154,31 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 th svg {
   float: left;
+}
+.pagination {
+  @apply flex items-center pl-0 rounded;
+}
+.pagination > .page-item {
+  @apply border w-4 h-4 hover:bg-gray-100 flex items-center justify-center p-4;
+}
+.pagination > .page-item.active {
+  @apply bg-primary-500 text-primary-50;
+}
+/* .page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+} */
+
+.page-link:not(:disabled):not(.disabled) {
+  cursor: pointer;
 }
 </style>
