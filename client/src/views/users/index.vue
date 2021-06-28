@@ -1,70 +1,9 @@
 <template>
-  <main class="flex-1">
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>{{ $t('users') }}</BasePageHeading>
 
-    <section class="mx-8 mt-8 rounded-lg shadow">
-      <div>
-        <div class="sm:hidden">
-          <label for="tabs" class="sr-only">Select a tab</label>
-          <select
-            id="tabs"
-            name="tabs"
-            class="block w-full border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
-          >
-            <option selected>My Account</option>
-            <option>Company</option>
-            <option>Team Members</option>
-            <option>Billing</option>
-          </select>
-        </div>
-        <div class="hidden sm:block">
-          <nav
-            class="relative z-0 flex divide-x divide-gray-200 rounded-lg shadow"
-            aria-label="Tabs"
-          >
-            <a
-              href="#"
-              aria-current="page"
-              class="relative flex-1 min-w-0 px-4 py-4 overflow-hidden text-sm font-medium text-center text-gray-900 bg-white rounded-l-lg group hover:bg-gray-50 focus:z-10"
-            >
-              <span>My Account</span>
-              <span aria-hidden="true" class="bg-primary-500 absolute inset-x-0 bottom-0 h-0.5" />
-            </a>
-
-            <a
-              href="#"
-              aria-current="false"
-              class="relative flex-1 min-w-0 px-4 py-4 overflow-hidden text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 group hover:bg-gray-50 focus:z-10"
-            >
-              <span>Company</span>
-              <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5" />
-            </a>
-
-            <a
-              href="#"
-              aria-current="false"
-              class="relative flex-1 min-w-0 px-4 py-4 overflow-hidden text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 group hover:bg-gray-50 focus:z-10"
-            >
-              <span>Team Members</span>
-              <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5" />
-            </a>
-
-            <a
-              href="#"
-              aria-current="false"
-              class="relative flex-1 min-w-0 px-4 py-4 overflow-hidden text-sm font-medium text-center text-gray-500 bg-white rounded-r-lg hover:text-gray-700 group hover:bg-gray-50 focus:z-10"
-            >
-              <span>Billing</span>
-              <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5" />
-            </a>
-          </nav>
-        </div>
-      </div>
-    </section>
-
-    <section class="p-8 users">
-      <div class>
-        <!-- <UserCard v-for="user in users" :key="user.id" :user="user" /> -->
+    <section class="p-8">
+      <div v-if="false">
         <OSelect v-model="perPage">
           <option value="5">5 per page</option>
           <option value="10">10 per page</option>
@@ -73,56 +12,46 @@
           <option value="250">250 per page</option>
           <option value="500">500 per page</option>
         </OSelect>
-
-        <OTable
-          :checked-rows.sync="checkedRows"
-          :per-page.sync="perPage"
-          :current-page.sync="currentPage"
-          :checkable="false"
-          :header-checkable="false"
-          :show-header="true"
-          hoverable
-          icon-pack="fas"
-          paginated
-          striped
-          narrowed
-          :data="users"
-        >
-          <OTableColumn
-            v-slot="props"
-            searchable
-            sortable
-            field="id"
-            label="ID"
-            numeric
-            width="100"
-          >{{ props.row.id }}</OTableColumn>
-          <OTableColumn v-slot="props" field="firstName" searchable sortable label="First Name">
-            <RouterLink
-              class="hover:underline"
-              :to="{ name: 'user-id-edit', params: { id: props.row.id } }"
-            >{{ props.row.firstName }}</RouterLink>
-          </OTableColumn>
-          <OTableColumn v-slot="props" field="lastName" searchable sortable label="Last Name">
-            <RouterLink
-              class="hover:underline"
-              :to="{ name: 'user-id-edit', params: { id: props.row.id } }"
-            >{{ props.row.lastName }}</RouterLink>
-          </OTableColumn>
-          <OTableColumn v-slot="props" field="homeChurch" searchable sortable label="Home Church">
-            <RouterLink
-              class="hover:underline"
-              :to="{ name: 'user-id-edit', params: { id: props.row.id } }"
-            >{{ props.row.homeChurch }}</RouterLink>
-          </OTableColumn>
-          <OTableColumn v-slot="props" field="email" searchable sortable label="Email">
-            <RouterLink
-              class="hover:underline"
-              :to="{ name: 'user-id-edit', params: { id: props.row.id } }"
-            >{{ props.row.email }}</RouterLink>
-          </OTableColumn>
-        </OTable>
       </div>
+
+      <div>
+        <BaseInput type="text" label="Filter by Name" v-model="filters.name.value" />
+      </div>
+    </section>
+
+    <section class="grid grid-cols-12 gap-4 p-4 mx-4 bg-white">
+      <article class="col-span-6">
+        <v-table
+          class="table-hover"
+          :filters="filters"
+          :data="users"
+          selectionMode="multiple"
+          selectedClass="bg-primary-100"
+          @selectionChanged="selectedRows = $event"
+        >
+          <thead slot="head">
+            <tr class="border-t border-gray-200">
+              <v-th
+                sortKey="name"
+                class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
+              >Name</v-th>
+            </tr>
+          </thead>
+          <tbody slot="body" slot-scope="{displayData}" class="bg-white divide-y divide-gray-100">
+            <v-tr v-for="row in displayData" :key="row.guid" :row="row" class="hover:bg-gray-100">
+              <td class="px-6 py-1">{{ row.name }}</td>
+            </v-tr>
+          </tbody>
+        </v-table>
+      </article>
+
+      <article class="col-span-6">
+        <strong>Selected:</strong>
+        <div v-if="selectedRows.length === 0" class="text-muted">No Rows Selected</div>
+        <ul>
+          <li v-for="selected in selectedRows" :key="selected">{{ selected.name }}</li>
+        </ul>
+      </article>
     </section>
   </main>
 </template>
@@ -151,6 +80,10 @@ export default defineComponent({
   data() {
     return {
       users: [],
+      filters: {
+        name: { value: '', keys: ['name'] }
+      },
+      selectedRows: [],
       totalUsers: 0,
       perPage: 250,
       currentPage: 1,
@@ -168,7 +101,7 @@ export default defineComponent({
   created() {
     watchEffect(() => {
       this.users = []
-      UserService.getUsers(this.perPage, this.page)
+      UserService.getUsers()
         .then(response => {
           this.users = response.data
           this.totalUsers = response.headers['x-total-count']

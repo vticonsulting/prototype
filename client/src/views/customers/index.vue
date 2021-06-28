@@ -13,14 +13,16 @@
       </template>
     </BasePageHeading>
 
-    <section class="p-4">
+    <section class="p-4 m-4 bg-white shadow">
       <!-- <OTable narrowed paginated hoverable striped checkable :data="customers" :columns="columns" /> -->
 
-      <OField label="Filter by name">
-        <OInput type="text" v-model="filters.name.value" />
-      </OField>
+      <div>
+        <OField label="Filter by name">
+          <OInput type="text" v-model="filters.name.value" />
+        </OField>
+      </div>
 
-      <div class="flex flex-col">
+      <div class="flex flex-col mt-4">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">

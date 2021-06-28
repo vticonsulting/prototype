@@ -51,7 +51,7 @@ module.exports = {
         ],
       },
       colors: {
-        primary: colors.mineShaft,
+        primary: colors.blueGem,
         secondary: colors.deepTeal,
         tertiary: colors.peachSchnapps,
         orange: colors.amber,
@@ -60,15 +60,16 @@ module.exports = {
         lime: colors.lime,
         'light-blue': colors.lightBlue,
 
-        // danger: 'var(--color-danger)',
-        // warning: 'var(--color-warning)',
-        // success: 'var(--color-success)',
-        // info: 'var(--color-info)',
-
         danger: colors.monza,
         warning: colors['sea-buckthorn'],
         success: colors.malachite,
         info: colors.scooter,
+        neutral: colors.blueGray,
+
+        // danger: colors.mineShaft,
+        // warning: colors.mineShaft,
+        // success: colors.mineShaft,
+        // info: colors.mineShaft,
 
         email: 'var(--color-emailer)',
         emailer: 'var(--color-emailer)',

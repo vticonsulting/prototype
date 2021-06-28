@@ -164,6 +164,12 @@ export default [
       import(/* webpackChunkName: "clients" */ '@/views/clients.vue'),
   },
   {
+    path: '/composition',
+    name: 'composition',
+    component: () =>
+      import(/* webpackChunkName: "composition" */ '@/views/composition.vue'),
+  },
+  {
     path: '/courses',
     name: 'courses',
     component: () =>

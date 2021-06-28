@@ -10,16 +10,17 @@
 
 /* ** Oruga ** */
 
-/* @import './components/autocomplete.css'; */
+@import './components/autocomplete.css';
 @import './components/button.css';
-/* @import './components/checkbox.css'; */
-/* @import './components/dropdown.css'; */
-/* @import './components/field.css'; */
-/* @import './components/radio.css'; */
-/* @import './components/select.css'; */
+@import './components/checkbox.css';
+@import './components/dropdown.css';
+@import './components/field.css';
+@import './components/radio.css';
+@import './components/select.css';
 @import './components/table.css';
 @import './components/tabs.css';
 
+/* ** ** */
 @import './components/alert.css';
 @import './components/box.css';
 @import './components/calendar.css';

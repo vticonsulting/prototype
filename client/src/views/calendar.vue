@@ -19,7 +19,7 @@
       <OButton variant="primary">Service Technicians</OButton>
     </section>
 
-    <section class="m-4">
+    <section class="p-4 m-4 bg-white shadow">
       <BaseCalendar />
     </section>
   </main>

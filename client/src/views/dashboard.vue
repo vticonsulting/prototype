@@ -1,5 +1,16 @@
 <template>
-  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-800">
+    <header class="flex items-center justify-between m-4">
+      <h1 class="text-2xl font-semibold text-primary-500">Dashboard</h1>
+
+      <button
+        type="button"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+      >
+        <BaseIconSolid name="user-add" class="mr-3 -ml-1" />Invite Users
+      </button>
+    </header>
+
     <section class="m-4">
       <StatsDisplay />
     </section>
@@ -37,12 +48,41 @@ Title
       <div>No recent activities</div>
     </section>-->
 
-    <section class="grid grid-cols-12 gap-4 m-4">
-      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-8">
-        <column-chart :data="[['Sun', 32], ['Mon', 46], ['Tue', 28]]" />
+    <section class="grid grid-cols-12 gap-4 mx-4">
+      <article
+        class="p-4 space-y-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-3"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Announcements</h2>
+        </header>
+        <div class="mt-4">
+          <p>There are currently no announcements available</p>
+        </div>
       </article>
-      <article class="p-4 bg-white rounded shadow col-span-full md:col-span-4">
-        <h2 class="text-lg font-medium">Projects by Status</h2>
+
+      <article
+        class="p-4 space-y-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-9"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Billing</h2>
+        </header>
+        <div class="mt-4">
+          <column-chart
+            :data="[
+              { name: '2020', data: { 'Jan': 3, 'Feb': 4, 'Mar': 5, 'Apr': 4, 'May': 8, 'Jun': 6 } },
+              { name: '2021', data: { 'Jan': 5, 'Feb': 6, 'Mar': 4, 'Apr': 2, 'May': 7, 'Jun': 8 } }
+            ]"
+          />
+        </div>
+      </article>
+
+      <article
+        v-if="false"
+        class="p-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-4"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Projects by Status</h2>
+        </header>
         <nav class="mt-4 space-y-1" aria-label="Sidebar">
           <a
             v-for="status in projectStatuses"
@@ -56,6 +96,23 @@ Title
             >{{ status.count }}</span>
           </a>
         </nav>
+      </article>
+    </section>
+
+    <article class="flex-1 p-4 m-4 space-y-4 bg-white shadow">
+      <header>
+        <h2 class="text-xl font-medium">Projects (Recent Activity)</h2>
+      </header>
+
+      <div class="mt-4">
+        <AutoComplete v-if="false" :data-items="countries" :placeholder="'e.g. Denmark'" />
+        <ProjectsTable />
+      </div>
+    </article>
+
+    <section class="gap-4 m-4 md:flex">
+      <article class="hidden">
+        <Calendar />
       </article>
     </section>
 
@@ -76,7 +133,7 @@ Title
       class="grid-cols-1 gap-4 mt-1 space-y-1 lg:mt-4 lg:space-y-0 lg:mx-4 lg:grid lg:grid-cols-12"
     >
       <!-- Comments -->
-      <section v-if="false" class="col-span-8 p-4 bg-white dark:bg-black lg:rounded-lg">
+      <section v-if="false" class="col-span-8 p-4 bg-white dark:bg-gray-900 lg:rounded-lg">
         <header>
           <h2>{{ $t('comments') }}</h2>
 
@@ -103,7 +160,7 @@ Title
                       />
 
                       <span
-                        class="absolute -bottom-0.5 -right-1 bg-white dark:bg-black rounded-tl px-0.5 py-px"
+                        class="absolute -bottom-0.5 -right-1 bg-white dark:bg-gray-900 rounded-tl px-0.5 py-px"
                       >
                         <!-- Heroicon name: chat-alt -->
                         <BaseIconSolid class="text-gray-400 dark:text-gray-200" name="chat-alt" />
@@ -302,112 +359,6 @@ Title
           </div>
         </article>
       </section>
-
-      <section>
-        <!-- Projects list (only on smallest breakpoint) -->
-        <div class="mt-10 sm:hidden">
-          <div class="px-4 sm:px-6">
-            <h2 class="text-xs font-medium tracking-wide text-gray-500 uppercase">Projects</h2>
-          </div>
-          <ul class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
-            <li v-for="project in projects" :key="project.id">
-              <a
-                href="#"
-                class="flex items-center justify-between px-4 py-4 group hover:bg-gray-50 sm:px-6"
-              >
-                <span class="flex items-center space-x-3 truncate">
-                  <span
-                    :class="[project.bgColorClass, 'w-2.5 h-2.5 flex-shrink-0 rounded-full']"
-                    aria-hidden="true"
-                  />
-                  <span class="text-sm font-medium leading-6 truncate">
-                    {{ project.title }}
-                    {{ ' ' }}
-                    <span
-                      class="font-normal text-gray-500 truncate"
-                    >in {{ project.team }}</span>
-                  </span>
-                </span>
-                <BaseIconSolid
-                  name="chevron-right"
-                  class="w-5 h-5 ml-4 text-gray-400 group-hover:text-gray-500"
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Projects table (small breakpoint and up) -->
-        <div class="hidden mt-8 sm:block">
-          <div class="inline-block min-w-full align-middle border-b border-gray-200">
-            <table class="min-w-full">
-              <thead>
-                <tr class="border-t border-gray-200">
-                  <th
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
-                  >
-                    <span class="lg:pl-2">Project</span>
-                  </th>
-                  <th
-                    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
-                  >Members</th>
-                  <th
-                    class="hidden px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 md:table-cell bg-gray-50"
-                  >Last updated</th>
-                  <th
-                    class="py-3 pr-6 text-xs font-medium tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50"
-                  />
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-100">
-                <tr v-for="project in projects" :key="project.id">
-                  <td
-                    class="w-full px-6 py-3 text-sm font-medium text-gray-900 max-w-0 whitespace-nowrap"
-                  >
-                    <div class="flex items-center space-x-3 lg:pl-2">
-                      <div
-                        :class="[project.bgColorClass, 'flex-shrink-0 w-2.5 h-2.5 rounded-full']"
-                        aria-hidden="true"
-                      />
-                      <a href="#" class="truncate hover:text-gray-600">
-                        <span>
-                          {{ project.title }}
-                          {{ ' ' }}
-                          <span
-                            class="font-normal text-gray-500"
-                          >in {{ project.team }}</span>
-                        </span>
-                      </a>
-                    </div>
-                  </td>
-                  <td class="px-6 py-3 text-sm font-medium text-gray-500">
-                    <div class="flex items-center space-x-2">
-                      <div class="flex flex-shrink-0 -space-x-1">
-                        <img
-                          v-for="member in project.members"
-                          :key="member.handle"
-                          class="w-6 h-6 rounded-full max-w-none ring-2 ring-white"
-                          :src="member.imageUrl"
-                          :alt="member.name"
-                        />
-                      </div>
-                      <span
-                        v-if="project.totalMembers > project.members.length"
-                        class="flex-shrink-0 text-xs font-medium leading-5"
-                      >+{{ project.totalMembers - project.members.length }}</span>
-                    </div>
-                  </td>
-                  <td
-                    class="hidden px-6 py-3 text-sm text-right text-gray-500 md:table-cell whitespace-nowrap"
-                  >{{ project.lastUpdated }}</td>
-                  <td class="pr-6">Menu</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
     </div>
 
     <OModal :active.sync="isImageModalActive">
@@ -493,52 +444,21 @@ Title
   </main>
 </template>
 
+
 <script>
 import { categories, products, projectStatuses } from '@/__mocks__'
 import billingStatusType from '@/__mocks__/BillingStatusType.json'
-
-const projects = [
-  {
-    id: 1,
-    title: 'GraphQL API',
-    initials: 'GA',
-    team: 'Engineering',
-    members: [
-      {
-        name: 'Dries Vincent',
-        handle: 'driesvincent',
-        imageUrl:
-          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Lindsay Walton',
-        handle: 'lindsaywalton',
-        imageUrl:
-          'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Courtney Henry',
-        handle: 'courtneyhenry',
-        imageUrl:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Tom Cook',
-        handle: 'tomcook',
-        imageUrl:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-    ],
-    totalMembers: 12,
-    lastUpdated: 'March 17, 2020',
-    pinned: true,
-    bgColorClass: 'bg-pink-600',
-  },
-]
-const pinnedProjects = projects.filter((project) => project.pinned)
-
+import { Calendar } from '@progress/kendo-vue-dateinputs'
+import countries from '@/__mocks__/countries'
+import { AutoComplete } from '@progress/kendo-vue-dropdowns'
+import ProjectsTable from '@/components/ProjectsTable'
 
 export default {
+  components: {
+    AutoComplete,
+    Calendar,
+    ProjectsTable
+  },
   metaInfo() {
     return {
       title: this.$t('dashboard'),
@@ -550,9 +470,8 @@ export default {
       options: ['list', 'of', 'options'],
       billingStatusType,
       categories,
+      countries,
       products,
-      projects,
-      pinnedProjects,
       projectStatuses,
       users: null,
       value: 5,

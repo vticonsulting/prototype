@@ -125,9 +125,7 @@ export default {
 </script>
 
 <template>
-  <nav
-    class="fixed top-0 z-10 w-full text-gray-800 bg-white shadow dark:bg-gray-800 dark:text-gray-50"
-  >
+  <nav class="fixed top-0 z-10 w-full text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-50">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex">

@@ -5,7 +5,7 @@
       class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-50"
     >Last 30 days</h3>
     <dl
-      class="grid grid-cols-1 overflow-hidden bg-white border border-gray-300 divide-y divide-gray-200 shadow dark:border-gray-700 dark:bg-black dark:divide-gray-600 lg:rounded-lg md:grid-cols-3 md:divide-y-0 md:divide-x"
+      class="grid grid-cols-1 overflow-hidden bg-white border divide-y divide-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:divide-gray-600 md:grid-cols-3 md:divide-y-0 md:divide-x"
     >
       <div>
         <div class="px-4 py-5 sm:p-6">
@@ -17,10 +17,10 @@
             </div>
 
             <div
-              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0"
+              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-success-100 text-success-800 md:mt-2 lg:mt-0"
             >
               <svg
-                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500"
+                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-success-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 aria-hidden="true"
@@ -50,10 +50,10 @@
             </div>
 
             <div
-              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0"
+              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-success-100 text-success-800 md:mt-2 lg:mt-0"
             >
               <svg
-                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500"
+                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-success-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 aria-hidden="true"
@@ -85,10 +85,10 @@
             </div>
 
             <div
-              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 md:mt-2 lg:mt-0"
+              class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-danger-100 text-danger-800 md:mt-2 lg:mt-0"
             >
               <svg
-                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500"
+                class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-danger-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 aria-hidden="true"

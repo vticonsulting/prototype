@@ -7,12 +7,12 @@ import { Window } from '@progress/kendo-vue-dialogs'
 import '@progress/kendo-theme-default/dist/all.css'
 
 const tabs = [
-  { name: 'Active', href: '#', current: true },
-  { name: 'Call Queue', href: '#', current: false },
-  { name: 'Schedule', href: '#', current: false },
-  { name: 'Complete', href: '#', current: false },
-  { name: 'Pending', href: '#', current: false },
-  { name: 'Billed', href: '#', current: false },
+  { name: 'Active', href: '#', current: true, state: 'success' },
+  { name: 'Call Queue', href: '#', current: false, state: 'warning' },
+  { name: 'Schedule', href: '#', current: false, state: 'success' },
+  { name: 'Complete', href: '#', current: false, state: 'success' },
+  { name: 'Pending', href: '#', current: false, state: 'success' },
+  { name: 'Billed', href: '#', current: false, state: 'neutral' },
 ]
 
 export default {
@@ -215,12 +215,15 @@ Reschedules
       <OTabs expanded>
         <OTabItem v-for="tab in tabs" :key="tab.name">
           <template slot="header">
-            <h2 class="text-lg">{{ tab.name }}</h2>
+            <div class="flex items-center space-x-4">
+              <div class="absolute flex items-center justify-center flex-shrink-0">
+                <span :class="`h-1.5 w-1.5 rounded-full bg-${tab.state}-500`" aria-hidden="true"></span>
+              </div>
+              <span>{{ tab.name }}</span>
+            </div>
           </template>
 
           <article class="mt-4">
-            <h2 class="text-lg font-medium">{{ tab.name }}</h2>
-
             <div class="mt-4">
               <DropDownList
                 :data-items="categories"
@@ -230,7 +233,6 @@ Reschedules
                 @change="handleDropDownChange"
               />
             </div>
-
             <div class="mt-4">
               <Grid
                 :data-items="dataResult"

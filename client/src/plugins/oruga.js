@@ -37,27 +37,27 @@ Vue.use(Oruga, {
     roundedClass: 'rounded-full',
     variantClass: 'border-',
   },
-  // dropdown: {
-  //   // override: true,
-  //   rootClass: 'flex relative w-full lg:w-auto lg:inline-flex',
-  //   disabledClass: '',
-  //   expandedClass: '',
-  //   inlineClass: '',
-  //   itemActiveClass: 'bg-primary-500 text-white',
-  //   itemClass:
-  //     'm-1 py-1 px-4 h-11 flex items-center rounded lg:block relative lg:h-auto text-base font-normal leading-normal cursor-pointer outline-none',
-  //   itemDisabledClass: '',
-  //   menuActiveClass: '',
-  //   menuClass:
-  //     'absolute shadow left-0 mt-1 w-64 top-full block z-20 shadow p-0 bg-white',
-  //   menuMobileOverlayClass: '',
-  //   menuPositionClass: '',
-  //   mobileClass: '',
-  //   triggerClass: 'w-full lg:w-auto',
-  // },
-  // dropdownItem: {
-  //   override: true,
-  // },
+  dropdown: {
+    // override: true,
+    // rootClass: 'flex relative w-full lg:w-auto lg:inline-flex',
+    // disabledClass: '',
+    // expandedClass: '',
+    // inlineClass: '',
+    // itemActiveClass: 'bg-primary-500 text-white',
+    // itemClass:
+    //   'm-1 py-1 px-4 h-11 flex items-center rounded lg:block relative lg:h-auto text-base font-normal leading-normal cursor-pointer outline-none',
+    // itemDisabledClass: '',
+    // menuActiveClass: '',
+    // menuClass:
+    //   'absolute shadow left-0 mt-1 w-64 top-full block z-20 shadow p-0 bg-white',
+    // menuMobileOverlayClass: '',
+    // menuPositionClass: 'is-',
+    // mobileClass: '',
+    // triggerClass: 'w-full lg:w-auto',
+  },
+  dropdownItem: {
+    override: true,
+  },
   // autocomplete: {
   //   override: true,
   //   menuClass:
@@ -132,5 +132,15 @@ Vue.use(Oruga, {
     thStickyClass: '',
     thUnselectableClass: '',
     trSelectedClass: 'is-selected',
+  },
+  tabs: {
+    override: true,
+    rootClass: 'tabs',
+    navTabsClass: 'flex -mb-px space-x-8 border-b',
+    tabItemWrapperClass:
+      'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm',
+    itemHeaderClass: 'header-item-',
+    itemHeaderActiveClass: 'is-active-',
+    itemHeaderTextClass: 'text-sm',
   },
 })

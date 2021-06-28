@@ -54,6 +54,16 @@ const store = new Vuex.Store({
       {id: 40, title: 'Release day', date: '2021-01-30'},
       // {id: 50, title: 'The Future of Frontend', date: '2021-02-05'},
     ],
+    pages: {
+      home: {name: 'Home', icon: 'home'},
+      dashboard: {name: 'Dashboard', icon: 'template'},
+      projects: {name: 'Projects', icon: 'collection'},
+      calendar: {name: 'Calendar', icon: 'calendar'},
+      customer: {name: 'Customers', icon: 'office-building'},
+      billing: {name: 'Billing', icon: 'credit-card'},
+      reports: {name: 'Reports', icon: 'document-report'},
+      settings: {name: 'Settings', icon: 'cog'},
+    },
     quotes: [
       {
         id: 1,
