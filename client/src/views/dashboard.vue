@@ -99,7 +99,7 @@ Title
       </article>
     </section>
 
-    <article class="flex-1 p-4 m-4 space-y-4 bg-white shadow">
+    <article class="flex-1 p-4 m-4 space-y-4 bg-white shadow dark:bg-black">
       <header>
         <h2 class="text-xl font-medium">Projects (Recent Activity)</h2>
       </header>
