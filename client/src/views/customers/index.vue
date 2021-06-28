@@ -14,8 +14,6 @@
     </BasePageHeading>
 
     <section class="p-4 m-4 bg-white shadow">
-      <!-- <OTable narrowed paginated hoverable striped checkable :data="customers" :columns="columns" /> -->
-
       <div>
         <OField label="Filter by name">
           <OInput type="text" v-model="filters.name.value" />
@@ -63,10 +61,6 @@
           </div>
         </div>
       </div>
-
-      <OTable paginated :data="customers">
-        <OTableColumn label="Customers" searchable field="Name" v-slot="props">{{ props.row.Name }}</OTableColumn>
-      </OTable>
     </section>
   </main>
 </template>
