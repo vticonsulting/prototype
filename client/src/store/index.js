@@ -265,6 +265,11 @@ const store = new Vuex.Store({
       state.user = userData
     },
 
+    SET_USER_INFO(state, userInfo) {
+      // localStorage.setItem('user', JSON.stringify(userInfo))
+      state.user = userInfo
+    },
+
     LOGOUT() {
       localStorage.removeItem('user')
       location.reload()

@@ -46,8 +46,8 @@ export default {
       return [
         {
           name: 'dashboard',
-          title: this.$t('dashboard_title'),
-          description: this.$t('dashboard_description'),
+          title: 'Elements, Layouts, Patterns & Templates',
+          description: 'UI and UX Workshop for exploring HTML, CSS, JS (Vue.js) features and functionality',
           icon: 'template',
         },
         // {
@@ -68,12 +68,12 @@ export default {
         //   description: this.$t('calendar_description'),
         //   icon: 'calendar',
         // },
-        {
-          name: 'support',
-          title: 'Support',
-          description: this.$t('support_description'),
-          icon: 'support',
-        },
+        // {
+        //   name: 'support',
+        //   title: 'Support',
+        //   description: this.$t('support_description'),
+        //   icon: 'support',
+        // },
       ]
     },
   },

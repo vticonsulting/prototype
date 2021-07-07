@@ -55,12 +55,13 @@ export default {
         type: Object,
         default() { },
       },
-      providers: ['twitter', 'github', 'aad'],
+      provider: 'aad',
       redirect: window.location.pathname,
     };
   },
   async created() {
     this.userInfo = await this.getUserInfo();
+    this.$store.commit('SET_USER_INFO', this.userInfo)
   },
   mounted() {
     console.log(this.$i18n.locale)
@@ -183,7 +184,7 @@ export default {
             </RouterLink>
           </div>
 
-          <div class="hidden md:ml-6 md:flex md:space-x-8">
+          <div v-if="userInfo" class="hidden md:ml-6 md:flex md:space-x-8">
             <RouterLink
               v-for="(route, index) in routes"
               :key="index"
@@ -241,28 +242,17 @@ export default {
         </div>
 
         <div class="flex items-center space-x-3">
-          <div class="md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+          <div class="space-x-3 md:ml-4 md:flex-shrink-0 md:flex md:items-center">
             <!-- User info -->
             <div class="user" v-if="userInfo">
-              <p>Welcome</p>
-              <p>{{ userInfo.userDetails }}</p>
-              <p>{{ userInfo.identityProvider }}</p>
+              <p>Welcome, {{ userInfo.userDetails }}</p>
             </div>
             <!-- End of user info -->
 
             <!-- Login and logout buttons -->
             <template v-if="!userInfo">
-              <template v-for="provider in providers">
-                <a
-                  :key="provider"
-                  :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
-                >{{ provider }}</a>
-              </template>
+              <a :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`">Login</a>
             </template>
-            <a
-              v-if="userInfo"
-              :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
-            >Logout</a>
             <!-- end of login and logout buttons -->
 
             <!-- Notifications Button -->
@@ -293,7 +283,7 @@ export default {
             </button>
 
             <!-- Profile Dropdown Menu -->
-            <div class="relative hidden ml-3 md:block">
+            <div v-if="userInfo" class="relative hidden ml-3 md:block">
               <div>
                 <button
                   v-on-clickaway="closeProfileMenu"
@@ -333,7 +323,7 @@ export default {
                   />
 
                   <a
-                    href="#"
+                    :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >{{ $t('sign_out') }}</a>
