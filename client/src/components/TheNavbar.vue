@@ -257,6 +257,7 @@ export default {
 
             <!-- Notifications Button -->
             <button
+              v-if="userInfo"
               @click="showAnnouncements = !showAnnouncements"
               class="hidden p-1 text-gray-400 bg-white rounded-full dark:bg-gray-800 dark:text-gray-400 md:block hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             >
@@ -323,7 +324,7 @@ export default {
                   />
 
                   <a
-                    :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
+                    :href="`/.auth/logout?post_logout_redirect_uri=/index`"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >{{ $t('sign_out') }}</a>

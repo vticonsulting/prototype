@@ -1,6 +1,6 @@
 <template>
   <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-800">
-    <header class="flex items-center justify-between m-4">
+    <header v-if="$store.state.user" class="flex items-center justify-between m-4">
       <h1 class="text-2xl font-semibold text-primary-500">Dashboard</h1>
 
       <button
@@ -11,7 +11,7 @@
       </button>
     </header>
 
-    <section class="m-4">
+    <section v-if="$store.state.user" class="m-4">
       <StatsDisplay />
     </section>
 
@@ -48,7 +48,7 @@ Title
       <div>No recent activities</div>
     </section>-->
 
-    <section class="grid grid-cols-12 gap-4 mx-4">
+    <section v-if="$store.state.user" class="grid grid-cols-12 gap-4 mx-4">
       <article
         class="p-4 space-y-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-3"
       >
@@ -99,7 +99,10 @@ Title
       </article>
     </section>
 
-    <article class="flex-1 p-4 m-4 space-y-4 bg-white shadow dark:bg-black">
+    <article
+      v-if="$store.state.user"
+      class="flex-1 p-4 m-4 space-y-4 bg-white shadow dark:bg-black"
+    >
       <header>
         <h2 class="text-xl font-medium">Projects (Recent Activity)</h2>
       </header>
