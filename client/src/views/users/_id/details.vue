@@ -1,15 +1,13 @@
 <template>
-  <main class="flex-1">
-    {{ person }}
-  </main>
+  <main class="flex-1">{{ user }}</main>
 </template>
 
 <script>
-import {defineComponent} from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   props: {
-    person: {
+    user: {
       type: Object,
       required: true,
     },

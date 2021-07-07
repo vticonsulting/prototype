@@ -14,6 +14,8 @@ Vue.use(Meta)
 //https://itnext.io/vue-tricks-smart-router-for-vuejs-93c287f46b50
 
 const router = new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 
   scrollBehavior(to, from, savedPosition) {

@@ -1,157 +1,142 @@
-<script>
-export default {
-  metaInfo() {
-    return {
-      title: this.$t('dashboard'),
-    }
-  },
-  data() {
-    return {
-      activeTab: 1,
-      users: null,
-      value: 5,
-      isCardModalActive: false,
-      isFullwidth: false,
-      isImageModalActive: false,
-      modalOpen: false,
-      showNotifications: false,
-      showOverlay: false,
-      showSidebar: false,
-      events: [
-        {
-          title: 'event1',
-          start: '2010-01-01',
-        },
-        {
-          title: 'event2',
-          start: '2010-01-05',
-          end: '2010-01-07',
-        },
-        {
-          title: 'event3',
-          start: '2010-01-09T12:30:00',
-          allDay: false,
-        },
-      ],
-      isOpen: 0,
-      selected: new Date(),
-      showWeekNumber: false,
-      locale: undefined, // Browser locale
-    }
-  },
-  async mounted() {
-    try {
-      let response = await this.$axios.get('users')
-      this.users = response.data
-    } catch (err) {
-      console.log(err)
-    }
-  },
-  computed: {
-    participantsTitle() {
-      return this.$t('participants')
-    },
-    coursesTitle() {
-      return this.$t('courses')
-    },
-    collapses() {
-      return [
-        {
-          title: `${this.$t('question')} 1`,
-          text: `${this.$t('answer')} 1`,
-        },
-        {
-          title: `${this.$t('question')} 2`,
-          text: `${this.$t('answer')} 2`,
-        },
-        {
-          title: `${this.$t('question')} 3`,
-          text: `${this.$t('answer')} 3`,
-        },
-      ]
-    },
-  },
-}
-</script>
-
 <template>
-  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
-    <section class="mt-8 lg:mx-4">
-      <StatsDisplay v-if="true" />
-      <StatsPanels v-if="false" />
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-800">
+    <header v-if="$store.state.user" class="flex items-center justify-between m-4">
+      <h1 class="text-2xl font-semibold text-primary-500">Dashboard</h1>
+
+      <button
+        type="button"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+      >
+        <BaseIconSolid name="user-add" class="mr-3 -ml-1" />Invite Users
+      </button>
+    </header>
+
+    <section v-if="$store.state.user" class="m-4">
+      <StatsDisplay />
+    </section>
+
+    <!-- <section>Calendar</section>
+
+    <section>
+      <h2>Announcements</h2>
+Title
+      Description
+      Publish Date
+      Full Name
+    </section>
+
+    <section>
+      <h2>Past Due</h2>
+      <div>2435 appointments past due</div>
+    </section>
+
+    <section>
+      <h2>Today</h2>
+
+      <div>No appointments from today</div>
+    </section>
+
+    <section>
+      <h2>Tomorrow</h2>
+
+      <div>No appointments for tomorrow</div>
+    </section>
+
+    <section>
+      <h2>Recent Activity</h2>
+
+      <div>No recent activities</div>
+    </section>-->
+
+    <section v-if="$store.state.user" class="grid grid-cols-12 gap-4 mx-4">
+      <article
+        class="p-4 space-y-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-3"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Announcements</h2>
+        </header>
+        <div class="mt-4">
+          <p>There are currently no announcements available</p>
+        </div>
+      </article>
+
+      <article
+        class="p-4 space-y-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-9"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Billing</h2>
+        </header>
+        <div class="mt-4">
+          <column-chart
+            :data="[
+              { name: '2020', data: { 'Jan': 3, 'Feb': 4, 'Mar': 5, 'Apr': 4, 'May': 8, 'Jun': 6 } },
+              { name: '2021', data: { 'Jan': 5, 'Feb': 6, 'Mar': 4, 'Apr': 2, 'May': 7, 'Jun': 8 } }
+            ]"
+          />
+        </div>
+      </article>
+
+      <article
+        v-if="false"
+        class="p-4 bg-white rounded shadow dark:bg-gray-900 col-span-full md:col-span-4"
+      >
+        <header>
+          <h2 class="text-xl font-medium">Projects by Status</h2>
+        </header>
+        <nav class="mt-4 space-y-1" aria-label="Sidebar">
+          <a
+            v-for="status in projectStatuses"
+            :key="status.name"
+            class="flex items-center px-3 text-sm font-medium rounded-md"
+          >
+            <span class="truncate">{{ status.name }}</span>
+            <span
+              v-if="status.count"
+              class="inline-block px-3 ml-auto text-xs rounded-full"
+            >{{ status.count }}</span>
+          </a>
+        </nav>
+      </article>
+    </section>
+
+    <article
+      v-if="$store.state.user"
+      class="flex-1 p-4 m-4 space-y-4 bg-white shadow dark:bg-black"
+    >
+      <header>
+        <h2 class="text-xl font-medium">Projects (Recent Activity)</h2>
+      </header>
+
+      <div class="mt-4">
+        <AutoComplete v-if="false" :data-items="countries" :placeholder="'e.g. Denmark'" />
+        <ProjectsTable />
+      </div>
+    </article>
+
+    <section class="gap-4 m-4 md:flex">
+      <article class="hidden">
+        <Calendar />
+      </article>
+    </section>
+
+    <section class="m-4">
+      <svg
+        class="w-full h-64 text-gray-200 bg-white border-2 border-gray-300 rounded shadow"
+        preserveAspectRatio="none"
+        stroke="currentColor"
+        fill="none"
+        viewBox="0 0 200 200"
+        aria-hidden="true"
+      >
+        <path vector-effect="non-scaling-stroke" stroke-width="2" d="M0 0l200 200M0 200L200 0" />
+      </svg>
     </section>
 
     <div
       class="grid-cols-1 gap-4 mt-1 space-y-1 lg:mt-4 lg:space-y-0 lg:mx-4 lg:grid lg:grid-cols-12"
     >
-      <!-- Frequently Asked Questions -->
-      <section
-        v-if="false"
-        class="p-6 overflow-hidden bg-white shadow dark:bg-gray-700 lg:rounded-lg col-span-full lg:col-span-8"
-      >
-        <h2 class="text-xl">{{ $t('frequently_asked_questions') }}</h2>
-
-        <article class="mt-4">
-          <OCollapse
-            :class="[
-              {
-                'bg-primary': isOpen == index,
-              },
-              'border-b border-gray-300 divide-y-2  divide-primary-200 v-card',
-            ]"
-            animation="slide"
-            v-for="(collapse, index) of collapses"
-            :key="index"
-            :open="isOpen == index"
-            @open="isOpen = index"
-          >
-            <div
-              slot="trigger"
-              slot-scope="props"
-              :class="[
-                {
-                  'bg-primary-100': isOpen == index,
-                },
-                'flex justify-between px-4 py-2 text-lg v-card-header hover:bg-primary-200 focus:outline-none focus:shadow-outline',
-              ]"
-              role="button"
-            >
-              <p
-                :class="[
-                  {
-                    'font-bold': isOpen == index,
-                  },
-                  'v-card-header-title text-gray-500 hover:text-gray-800',
-                ]"
-              >{{ collapse.title }}</p>
-              <a class="v-card-header-icon">
-                <BaseIconOutlined :name="props.open ? 'chevron-up' : 'chevron-down'" />
-              </a>
-            </div>
-            <div class="v-card-content bg-primary-50">
-              <div class="px-5 pt-2 pb-6 v-content">{{ collapse.text }}</div>
-            </div>
-          </OCollapse>
-        </article>
-      </section>
-
-      <!-- Upcoming Tasks  -->
-      <section
-        v-if="false"
-        class="text-gray-800 bg-white shadow dark:bg-gray-700 lg:rounded-lg lg:col-span-4"
-      >
-        <TaskList :title="$t('upcoming_tasks')" />
-      </section>
-
-      <section
-        v-if="false"
-        class="p-4 overflow-hidden bg-white shadow dark:bg-gray-700 lg:rounded-lg col-span-full lg:col-span-4"
-      >
-        <AdvocateInterestForm />
-      </section>
-
       <!-- Comments -->
-      <section v-if="true" class="col-span-8 p-4 bg-white lg:rounded-lg">
+      <section v-if="false" class="col-span-8 p-4 bg-white dark:bg-gray-900 lg:rounded-lg">
         <header>
           <h2>{{ $t('comments') }}</h2>
 
@@ -161,27 +146,6 @@ export default {
         </header>
 
         <article class="mt-4">
-          <!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  const colors = require('tailwindcss/colors')
-
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        colors: {
-          rose: colors.rose,
-        }
-      }
-    }
-  }
-  ```
-          -->
           <div class="flow-root">
             <ul class="-mb-8">
               <li>
@@ -193,36 +157,29 @@ export default {
                   <div class="relative flex items-start space-x-3">
                     <div class="relative">
                       <img
-                        class="flex items-center justify-center w-10 h-10 bg-gray-400 rounded-full ring-8 ring-white"
+                        class="flex items-center justify-center w-10 h-10 bg-gray-400 rounded-full ring-8 ring-white dark:ring-gray-800"
                         src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80"
                         alt
                       />
 
-                      <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
+                      <span
+                        class="absolute -bottom-0.5 -right-1 bg-white dark:bg-gray-900 rounded-tl px-0.5 py-px"
+                      >
                         <!-- Heroicon name: chat-alt -->
-                        <svg
-                          class="w-5 h-5 text-gray-400"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
+                        <BaseIconSolid class="text-gray-400 dark:text-gray-200" name="chat-alt" />
                       </span>
                     </div>
                     <div class="flex-1 min-w-0">
                       <div>
                         <div class="text-sm">
-                          <a href="#" class="font-medium text-gray-900">Eduardo Benz</a>
+                          <a
+                            href="#"
+                            class="font-medium text-gray-900 dark:text-gray-50"
+                          >Eduardo Benz</a>
                         </div>
                         <p class="mt-0.5 text-sm text-gray-500">Commented 6d ago</p>
                       </div>
-                      <div class="mt-2 text-sm text-gray-700">
+                      <div class="mt-2 text-sm text-gray-700 dark:text-gray-300">
                         <p>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit. Tincidunt nunc ipsum tempor purus vitae id.
@@ -266,11 +223,11 @@ export default {
                     </div>
                     <div class="min-w-0 flex-1 py-1.5">
                       <div class="text-sm text-gray-500">
-                        <a href="#" class="font-medium text-gray-900">Hilary Mahy</a>
+                        <a href="#" class="font-medium text-gray-900 dark:text-gray-50">Hilary Mahy</a>
                         assigned
                         <a
                           href="#"
-                          class="font-medium text-gray-900"
+                          class="font-medium text-gray-900 dark:text-gray-50"
                         >Kristin Watson</a>
                         <span class="whitespace-nowrap">2d ago</span>
                       </div>
@@ -311,7 +268,10 @@ export default {
                     <div class="flex-1 min-w-0 py-0">
                       <div class="text-sm leading-8 text-gray-500">
                         <span class="mr-0.5">
-                          <a href="#" class="font-medium text-gray-900">Hilary Mahy</a>
+                          <a
+                            href="#"
+                            class="font-medium text-gray-900 dark:text-gray-50"
+                          >Hilary Mahy</a>
                           added tags
                         </span>
                         <span class="mr-0.5">
@@ -322,7 +282,7 @@ export default {
                             <span class="absolute flex items-center justify-center flex-shrink-0">
                               <span class="h-1.5 w-1.5 rounded-full bg-rose-500" aria-hidden="true"></span>
                             </span>
-                            <span class="ml-3.5 font-medium text-gray-900">Bug</span>
+                            <span class="ml-3.5 font-medium text-gray-900 dark:text-gray-50">Bug</span>
                           </a>
 
                           <a
@@ -335,7 +295,9 @@ export default {
                                 aria-hidden="true"
                               ></span>
                             </span>
-                            <span class="ml-3.5 font-medium text-gray-900">Accessibility</span>
+                            <span
+                              class="ml-3.5 font-medium text-gray-900 dark:text-gray-50"
+                            >Accessibility</span>
                           </a>
                         </span>
                         <span class="whitespace-nowrap">6h ago</span>
@@ -375,11 +337,14 @@ export default {
                     <div class="flex-1 min-w-0">
                       <div>
                         <div class="text-sm">
-                          <a href="#" class="font-medium text-gray-900">Jason Meyers</a>
+                          <a
+                            href="#"
+                            class="font-medium text-gray-900 dark:text-gray-50"
+                          >Jason Meyers</a>
                         </div>
                         <p class="mt-0.5 text-sm text-gray-500">Commented 2h ago</p>
                       </div>
-                      <div class="mt-2 text-sm text-gray-700">
+                      <div class="mt-2 text-sm text-gray-700 dark:text-gray-300">
                         <p>
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit. Tincidunt nunc ipsum tempor purus vitae id.
@@ -394,25 +359,6 @@ export default {
                 </div>
               </li>
             </ul>
-
-            <OCollapse :open="false" aria-id="contentIdForA11y1">
-              <OButton
-                variant="primary"
-                slot="trigger"
-                aria-controls="contentIdForA11y1"
-              >{{ $t('click_me') }}</OButton>
-
-              <div class="notification">
-                <h3>Subtitle</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  <br />Nulla accumsan, metus ultrices eleifend gravida, nulla nunc
-                  varius lectus, nec rutrum justo nibh eu lectus.
-                  <br />Ut vulputate semper dui. Fusce erat odio, sollicitudin vel
-                  erat vel, interdum mattis neque.
-                </p>
-              </div>
-            </OCollapse>
           </div>
         </article>
       </section>
@@ -500,3 +446,83 @@ export default {
     </OSidebar>
   </main>
 </template>
+
+
+<script>
+import { categories, products, projectStatuses } from '@/__mocks__'
+import billingStatusType from '@/__mocks__/BillingStatusType.json'
+import { Calendar } from '@progress/kendo-vue-dateinputs'
+import countries from '@/__mocks__/countries'
+import { AutoComplete } from '@progress/kendo-vue-dropdowns'
+import ProjectsTable from '@/components/ProjectsTable'
+
+export default {
+  components: {
+    AutoComplete,
+    Calendar,
+    ProjectsTable
+  },
+  metaInfo() {
+    return {
+      title: this.$t('dashboard'),
+    }
+  },
+  data() {
+    return {
+      selectedOption: null,
+      options: ['list', 'of', 'options'],
+      billingStatusType,
+      categories,
+      countries,
+      products,
+      projectStatuses,
+      users: null,
+      value: 5,
+      isCardModalActive: false,
+      isFullwidth: false,
+      isImageModalActive: false,
+      modalOpen: false,
+      showNotifications: false,
+      showOverlay: false,
+      showSidebar: false,
+      events: [
+        {
+          title: 'event1',
+          start: '2010-01-01',
+        },
+        {
+          title: 'event2',
+          start: '2010-01-05',
+          end: '2010-01-07',
+        },
+        {
+          title: 'event3',
+          start: '2010-01-09T12:30:00',
+          allDay: false,
+        },
+      ],
+      selected: new Date(),
+      showWeekNumber: false,
+      locale: undefined, // Browser locale
+    }
+  },
+  computed: {
+    collapses() {
+      return [
+        {
+          title: `${this.$t('question')} 1`,
+          text: `${this.$t('answer')} 1`,
+        },
+        {
+          title: `${this.$t('question')} 2`,
+          text: `${this.$t('answer')} 2`,
+        },
+        {
+          title: `${this.$t('question')} 3`,
+          text: `${this.$t('answer')} 3`,
+        },
+      ]
+    },
+  },
+}
+</script>

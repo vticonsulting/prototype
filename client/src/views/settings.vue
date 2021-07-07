@@ -2,10 +2,10 @@
   <main class="flex-1">
     <BasePageHeading>{{ $t('settings') }}</BasePageHeading>
 
-    <section class="max-w-xl p-8">
+    <section v-if="false" class="max-w-xl p-8">
       <OField :label="$t('find_movie')">
         <OAutocomplete
-          :data="data"
+          :data="movies"
           :placeholder="$t('enter_movie_name')"
           field="title"
           clearable
@@ -54,12 +54,12 @@
 </template>
 
 <script>
-import { data2 } from '@/__mocks__'
+import { movies } from '@/__mocks__'
 
 export default {
   data() {
     return {
-      data2,
+      movies,
       data: [],
       keepFirst: false,
       openOnFocus: false,

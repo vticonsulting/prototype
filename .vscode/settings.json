@@ -1,5 +1,14 @@
 {
   "staticWebApps.appSubpath": "/client",
   "staticWebApps.apiSubpath": "api",
-  "staticWebApps.outputSubpath": "dist"
+  "staticWebApps.outputSubpath": "dist",
+  "i18n-ally.localesPaths": ["client/src/locales"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "azureFunctions.deploySubpath": "api",
+  "azureFunctions.postDeployTask": "npm install",
+  "azureFunctions.projectLanguage": "JavaScript",
+  "azureFunctions.projectRuntime": "~3",
+  "azureFunctions.preDeployTask": "npm prune",
+  "debug.internalConsoleOptions": "neverOpen"
 }

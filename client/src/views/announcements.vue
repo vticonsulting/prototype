@@ -1,5 +1,5 @@
 <template>
-  <main class="flex-1 w-full bg-gray-100">
+  <main class="relative flex-1 w-full h-screen pb-4 bg-gray-100 dark:bg-gray-900">
     <BasePageHeading>{{ $t('announcements') }}</BasePageHeading>
 
     <section class="p-6 mx-8 mt-8 bg-white rounded-lg shadow">
@@ -90,6 +90,7 @@
             To: "transform opacity-0 scale-95"
               -->
               <div
+                v-show="false"
                 class="absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu"
                 aria-orientation="vertical"

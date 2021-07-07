@@ -1,10 +1,5 @@
 <template>
   <main class="flex-1 bg-secondary-100">
-    <p v-if="false">
-      {{ $t('edit_volunteer') }} / {{ $t('edit_advocate') }} |
-      {{ $t('edit_family_members') }}
-    </p>
-
     <section>
       <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
         <aside class="px-2 py-6 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
@@ -24,7 +19,7 @@
 
             <a
               v-if="false"
-              href="#personal-info"
+              href="#useral-info"
               class="flex items-center px-3 py-2 text-sm font-medium text-gray-900 rounded-md hover:text-gray-900 hover:bg-gray-50 group"
               aria-current="page"
             >
@@ -33,7 +28,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="identification"
               />
-              <span class="truncate"> {{ $t('personal_information') }} </span>
+              <span class="truncate">{{ $t('useral_information') }}</span>
             </a>
 
             <a
@@ -57,7 +52,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="user-group"
               />
-              <span class="truncate"> {{ $t('family_info') }} </span>
+              <span class="truncate">{{ $t('family_info') }}</span>
             </a>
 
             <a
@@ -70,7 +65,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="heart"
               />
-              <span class="truncate"> {{ $t('volunteer_profile') }} </span>
+              <span class="truncate">{{ $t('volunteer_profile') }}</span>
             </a>
 
             <a
@@ -82,7 +77,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="key"
               />
-              <span class="truncate"> {{ $t('password') }} </span>
+              <span class="truncate">{{ $t('password') }}</span>
             </a>
 
             <a
@@ -94,7 +89,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="credit-card"
               />
-              <span class="truncate"> {{ $t('plan_and_billing') }} </span>
+              <span class="truncate">{{ $t('plan_and_billing') }}</span>
             </a>
 
             <a
@@ -106,7 +101,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="user-group"
               />
-              <span class="truncate"> {{ $t('team') }} </span>
+              <span class="truncate">{{ $t('team') }}</span>
             </a>
 
             <a
@@ -119,7 +114,7 @@
                 fixed
               />
 
-              <span class="truncate"> {{ $t('roles_and_assignments') }} </span>
+              <span class="truncate">{{ $t('roles_and_assignments') }}</span>
             </a>
 
             <a
@@ -131,7 +126,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="view-grid-add"
               />
-              <span class="truncate"> {{ $t('integrations') }} </span>
+              <span class="truncate">{{ $t('integrations') }}</span>
             </a>
 
             <a
@@ -166,7 +161,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="pencil"
               />
-              <span class="truncate"> {{ $t('notes') }}</span>
+              <span class="truncate">{{ $t('notes') }}</span>
             </a>
 
             <a
@@ -177,7 +172,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="handshake"
               />
-              <span class="truncate"> {{ $t('agreements') }} </span>
+              <span class="truncate">{{ $t('agreements') }}</span>
             </a>
 
             <!--
@@ -238,9 +233,7 @@
                 class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 group-hover:text-gray-500"
                 name="history"
               />
-              <span class="truncate"
-                >{{ $t('history') }} / {{ $t('timeline') }}</span
-              >
+              <span class="truncate">{{ $t('history') }} / {{ $t('timeline') }}</span>
             </a>
 
             <a
@@ -261,12 +254,8 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('profile') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('profile_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('profile') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('profile_description') }}</p>
                 </div>
 
                 <div class="grid grid-cols-3 gap-6">
@@ -274,16 +263,12 @@
                     <label
                       for="username"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('username') }}
-                    </label>
+                    >{{ $t('username') }}</label>
 
                     <div class="flex mt-1 rounded-md shadow-sm">
                       <span
                         class="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 bg-gray-50 rounded-l-md sm:text-sm"
-                      >
-                        designcoder.net/
-                      </span>
+                      >designcoder.net/</span>
                       <input
                         type="text"
                         name="username"
@@ -298,9 +283,7 @@
                     <label
                       for="about"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('about') }}
-                    </label>
+                    >{{ $t('about') }}</label>
                     <div class="mt-1">
                       <textarea
                         id="about"
@@ -310,19 +293,13 @@
                         placeholder="you@example.com"
                       />
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                      {{ $t('about_description') }}
-                    </p>
+                    <p class="mt-2 text-sm text-gray-500">{{ $t('about_description') }}</p>
                   </div>
 
                   <div class="col-span-3">
-                    <label class="block text-sm font-medium text-gray-700">
-                      {{ $t('photo') }}
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700">{{ $t('photo') }}</label>
                     <div class="flex items-center mt-1">
-                      <span
-                        class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full"
-                      >
+                      <span class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
                         <svg
                           class="w-full h-full text-gray-300"
                           fill="currentColor"
@@ -336,16 +313,12 @@
                       <button
                         type="button"
                         class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                      >
-                        {{ $t('change') }}
-                      </button>
+                      >{{ $t('change') }}</button>
                     </div>
                   </div>
 
                   <div class="col-span-3">
-                    <label class="block text-sm font-medium text-gray-700">
-                      {{ $t('cover_photo') }}
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700">{{ $t('cover_photo') }}</label>
                     <div
                       class="flex justify-center px-6 pt-5 pb-6 mt-2 border-2 border-gray-300 border-dashed rounded-md"
                     >
@@ -370,18 +343,11 @@
                             class="relative font-medium bg-white rounded-md cursor-pointer text-primary-600 hover:text-primary-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
                           >
                             <span>{{ $t('upload_a_file') }}</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              class="sr-only"
-                            />
+                            <input id="file-upload" name="file-upload" type="file" class="sr-only" />
                           </label>
                           <p class="pl-1">{{ $t('or_drag_and_drop') }}</p>
                         </div>
-                        <p class="text-xs text-gray-500">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
+                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                       </div>
                     </div>
                   </div>
@@ -391,23 +357,19 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
 
-          <form v-if="false" id="personal-info" action="#" method="POST">
+          <form v-if="false" id="useral-info" action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('personal_information') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('personal_information_description') }}
-                  </p>
+                  <h3
+                    class="text-lg font-medium leading-6 text-gray-900"
+                  >{{ $t('useral_information') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('useral_information_description') }}</p>
                 </div>
 
                 <div class="grid grid-cols-6 gap-6">
@@ -415,9 +377,7 @@
                     <label
                       for="first_name"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('first_name') }}
-                    </label>
+                    >{{ $t('first_name') }}</label>
                     <input
                       type="text"
                       name="first_name"
@@ -431,9 +391,7 @@
                     <label
                       for="last_name"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('last_name') }}
-                    </label>
+                    >{{ $t('last_name') }}</label>
                     <input
                       type="text"
                       name="last_name"
@@ -447,9 +405,7 @@
                     <label
                       for="email_address"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('email_address') }}
-                    </label>
+                    >{{ $t('email_address') }}</label>
                     <input
                       type="text"
                       name="email_address"
@@ -463,9 +419,7 @@
                     <label
                       for="country"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('country') }} / {{ $t('region') }}
-                    </label>
+                    >{{ $t('country') }} / {{ $t('region') }}</label>
                     <select
                       id="country"
                       name="country"
@@ -482,9 +436,7 @@
                     <label
                       for="street_address"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('street_address') }}
-                    </label>
+                    >{{ $t('street_address') }}</label>
                     <input
                       type="text"
                       name="street_address"
@@ -498,9 +450,7 @@
                     <label
                       for="city"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('city') }}
-                    </label>
+                    >{{ $t('city') }}</label>
                     <input
                       type="text"
                       name="city"
@@ -513,9 +463,7 @@
                     <label
                       for="state"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('state') }} / {{ $t('province') }}
-                    </label>
+                    >{{ $t('state') }} / {{ $t('province') }}</label>
                     <input
                       type="text"
                       name="state"
@@ -528,9 +476,7 @@
                     <label
                       for="postal_code"
                       class="block text-sm font-medium text-gray-700"
-                    >
-                      {{ $t('zip_code') }}
-                    </label>
+                    >{{ $t('zip_code') }}</label>
                     <input
                       type="text"
                       name="postal_code"
@@ -546,9 +492,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -557,18 +501,19 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('contact_info') }}
-                  </h3>
-                  <p v-if="false" class="mt-1 text-sm text-gray-500">
-                    {{ $t('contact_info_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('contact_info') }}</h3>
+                  <p
+                    v-if="false"
+                    class="mt-1 text-sm text-gray-500"
+                  >{{ $t('contact_info_description') }}</p>
                 </div>
 
-                <div class="">
-                  <OButton v-if="false">{{
-                    $t('change_profile_picture')
-                  }}</OButton>
+                <div class>
+                  <OButton v-if="false">
+                    {{
+                      $t('change_profile_picture')
+                    }}
+                  </OButton>
 
                   <OField
                     v-if="false"
@@ -590,10 +535,10 @@
                       @select="option => (selected = option)"
                       @infinite-scroll="getMoreAsyncData"
                     >
-                      <template #default="{option}">
+                      <template #default="{ option }">
                         <div class="flex">
                           <div class="flex-shrink-0 mr-4">
-                            <div class="">
+                            <div class>
                               <img
                                 width="120"
                                 :src="`https://image.tmdb.org/t/p/w500/${option.poster_path}`"
@@ -601,12 +546,8 @@
                             </div>
                           </div>
                           <div>
-                            <h4 class="text-lg font-bold">
-                              {{ option.title }}
-                            </h4>
-                            <p class="mt-1">
-                              {{ option.overview }}
-                            </p>
+                            <h4 class="text-lg font-bold">{{ option.title }}</h4>
+                            <p class="mt-1">{{ option.overview }}</p>
                             <small>
                               {{ $t('released_at') }} {{ option.release_date }},
                               {{ $t('rated') }}
@@ -616,18 +557,17 @@
                         </div>
                       </template>
                       <template #footer>
-                        <span v-show="page > totalPages" class="has-text-grey">
-                          {{ $t('no_movies_found') }}
-                        </span>
+                        <span
+                          v-show="page > totalPages"
+                          class="has-text-grey"
+                        >{{ $t('no_movies_found') }}</span>
                       </template>
                     </OAutocomplete>
 
                     <div v-if="selected" class="mt-4">
                       <span
                         class="text-xs font-semibold tracking-widest uppercase border-b"
-                      >
-                        {{ $t('selected') }}
-                      </span>
+                      >{{ $t('selected') }}</span>
                       <p class="mt-1 font-mono text-xs">{{ selected }}</p>
                     </div>
                   </OField>
@@ -637,7 +577,7 @@
                     :label="$t('first_name')"
                   >
                     <OInput
-                      v-model="person.firstName"
+                      v-model="user.firstName"
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -647,7 +587,7 @@
                     :label="$t('last_name')"
                   >
                     <OInput
-                      v-model="person.lastName"
+                      v-model="user.lastName"
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -667,7 +607,7 @@
                     :label="$t('home_church')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -676,13 +616,8 @@
                     label-class="block text-sm font-medium text-gray-700"
                     :label="$t('assigned_church')"
                   >
-                    <OSelect
-                      :placeholder="$t('select_assigned_church')"
-                      expanded
-                    >
-                      <option value="1">
-                        12Stone - Snellville - Snellvill, GA - Active
-                      </option>
+                    <OSelect :placeholder="$t('select_assigned_church')" expanded>
+                      <option value="1">12Stone - Snellville - Snellvill, GA - Active</option>
                       <option value="2">Option 2</option>
                     </OSelect>
                   </OField>
@@ -694,7 +629,7 @@
                     <OInput
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                       type="email"
-                      v-model="person.email"
+                      v-model="user.email"
                       maxlength="30"
                     />
                   </OField>
@@ -717,7 +652,7 @@
                     :label="$t('mobile_phone')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -727,7 +662,7 @@
                     :label="$t('home_phone')"
                   >
                     <OInput
-                      value=""
+                      value
                       :placeholder="$t('enter_home_phone')"
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
@@ -738,7 +673,7 @@
                     :label="$t('work_phone')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -748,7 +683,7 @@
                     :label="$t('occupation')"
                   >
                     <OInput
-                      value=""
+                      value
                       :placeholder="$t('occupation')"
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
@@ -759,7 +694,7 @@
                     :label="$t('address')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -769,18 +704,15 @@
                     :label="$t('apartment_or_unit_number')"
                   >
                     <OInput
-                      value=""
+                      value
                       placeholder="Suite, apartment number, or unit"
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
 
-                  <OField
-                    label-class="block text-sm font-medium text-gray-700"
-                    :label="$t('city')"
-                  >
+                  <OField label-class="block text-sm font-medium text-gray-700" :label="$t('city')">
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -790,7 +722,7 @@
                     :label="$t('state')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -800,7 +732,7 @@
                     :label="$t('zip_code')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -810,7 +742,7 @@
                     :label="$t('country')"
                   >
                     <OInput
-                      value=""
+                      value
                       input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     />
                   </OField>
@@ -821,9 +753,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -832,12 +762,8 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('family_photo') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('family_photo_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('family_photo') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('family_photo_description') }}</p>
                 </div>
               </div>
 
@@ -850,7 +776,7 @@
                   :label="$t('family_name')"
                 >
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
@@ -879,23 +805,15 @@
                   label-class="block text-sm font-medium text-gray-700"
                   :label="$t('family_structure')"
                 >
-                  <OSelect
-                    :placeholder="$t('select_family_structure')"
-                    expanded
-                  >
+                  <OSelect :placeholder="$t('select_family_structure')" expanded>
                     <option value="1">Single Mother</option>
                     <option value="2">Option 2</option>
                   </OSelect>
                 </OField>
 
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('agency')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('agency')">
                   <OSelect :placeholder="$t('select_agency')" expanded>
-                    <option value="1">
-                      Gwinett County DFCS (Lawrenceville, GA)
-                    </option>
+                    <option value="1">Gwinett County DFCS (Lawrenceville, GA)</option>
                     <option value="2">Option 2</option>
                   </OSelect>
                 </OField>
@@ -918,7 +836,7 @@
                   :label="$t('address')"
                 >
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
@@ -928,44 +846,32 @@
                   :label="$t('apartment_or_unit_number')"
                 >
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
 
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('city')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('city')">
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('state')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('state')">
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('zip')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('zip')">
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('county')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('county')">
                   <OInput
-                    value=""
+                    value
                     input-class="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                   />
                 </OField>
@@ -987,9 +893,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -998,18 +902,12 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('notifications') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('notifications_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('notifications') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('notifications_description') }}</p>
                 </div>
 
                 <fieldset>
-                  <legend class="text-base font-medium text-gray-900">
-                    {{ $t('by_email') }}
-                  </legend>
+                  <legend class="text-base font-medium text-gray-900">{{ $t('by_email') }}</legend>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-start">
                       <div class="flex items-center h-5">
@@ -1021,12 +919,8 @@
                         />
                       </div>
                       <div class="ml-3 text-sm">
-                        <label for="comments" class="font-medium text-gray-700">
-                          {{ $t('comments') }}
-                        </label>
-                        <p class="text-gray-500">
-                          {{ $t('comments_description') }}
-                        </p>
+                        <label for="comments" class="font-medium text-gray-700">{{ $t('comments') }}</label>
+                        <p class="text-gray-500">{{ $t('comments_description') }}</p>
                       </div>
                     </div>
                     <div>
@@ -1043,12 +937,8 @@
                           <label
                             for="candidates"
                             class="font-medium text-gray-700"
-                          >
-                            {{ $t('candidates') }}
-                          </label>
-                          <p class="text-gray-500">
-                            {{ $t('candidates_description') }}
-                          </p>
+                          >{{ $t('candidates') }}</label>
+                          <p class="text-gray-500">{{ $t('candidates_description') }}</p>
                         </div>
                       </div>
                     </div>
@@ -1063,24 +953,16 @@
                           />
                         </div>
                         <div class="ml-3 text-sm">
-                          <label for="offers" class="font-medium text-gray-700">
-                            {{ $t('offers') }}
-                          </label>
-                          <p class="text-gray-500">
-                            {{ $t('offers_description') }}
-                          </p>
+                          <label for="offers" class="font-medium text-gray-700">{{ $t('offers') }}</label>
+                          <p class="text-gray-500">{{ $t('offers_description') }}</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </fieldset>
                 <fieldset class="mt-6">
-                  <legend class="text-base font-medium text-gray-900">
-                    {{ $t('push_notifications') }}
-                  </legend>
-                  <p class="text-sm text-gray-500">
-                    {{ $t('push_notifications_description') }}
-                  </p>
+                  <legend class="text-base font-medium text-gray-900">{{ $t('push_notifications') }}</legend>
+                  <p class="text-sm text-gray-500">{{ $t('push_notifications_description') }}</p>
                   <div class="mt-4 space-y-4">
                     <div class="flex items-center">
                       <input
@@ -1090,9 +972,7 @@
                         class="w-4 h-4 border-gray-300 text-primary-600 focus:ring-primary-500"
                       />
                       <label for="push_everything" class="ml-3">
-                        <span class="block text-sm font-medium text-gray-700">
-                          {{ $t('everything') }}
-                        </span>
+                        <span class="block text-sm font-medium text-gray-700">{{ $t('everything') }}</span>
                       </label>
                     </div>
                     <div class="flex items-center">
@@ -1103,9 +983,9 @@
                         class="w-4 h-4 border-gray-300 text-primary-600 focus:ring-primary-500"
                       />
                       <label for="push_email" class="ml-3">
-                        <span class="block text-sm font-medium text-gray-700">
-                          {{ $t('same_as_email') }}
-                        </span>
+                        <span
+                          class="block text-sm font-medium text-gray-700"
+                        >{{ $t('same_as_email') }}</span>
                       </label>
                     </div>
                     <div class="flex items-center">
@@ -1116,9 +996,9 @@
                         class="w-4 h-4 border-gray-300 text-primary-600 focus:ring-primary-500"
                       />
                       <label for="push_nothing" class="ml-3">
-                        <span class="block text-sm font-medium text-gray-700">
-                          {{ $t('no_push_notifications') }}
-                        </span>
+                        <span
+                          class="block text-sm font-medium text-gray-700"
+                        >{{ $t('no_push_notifications') }}</span>
                       </label>
                     </div>
                   </div>
@@ -1128,9 +1008,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1139,20 +1017,14 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('roles') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('roles_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('roles') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('roles_description') }}</p>
                 </div>
               </div>
 
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <!-- Roles & Assignments -->
-                <h3 class="text-lg font-medium">
-                  {{ $t('roles_and_assignments') }}
-                </h3>
+                <h3 class="text-lg font-medium">{{ $t('roles_and_assignments') }}</h3>
                 <!--
                   - Group
                   - Role
@@ -1208,9 +1080,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1219,23 +1089,17 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('volunteer_profile') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('volunteer_profile_description') }}
-                  </p>
+                  <h3
+                    class="text-lg font-medium leading-6 text-gray-900"
+                  >{{ $t('volunteer_profile') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('volunteer_profile_description') }}</p>
                 </div>
               </div>
 
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <!-- Volunteer Eligibility -->
-                <h4 class="text-lg font-medium">
-                  {{ $t('volunteer_eligibility') }}
-                </h4>
-
+                <h4 class="text-lg font-medium">{{ $t('volunteer_eligibility') }}</h4>
                 - {{ $t('signed_agreement_on') }}:
-
                 <button>{{ $t('view_print_agreement') }}</button>
 
                 <OField>
@@ -1246,9 +1110,7 @@
                 <button>{{ $t('save') }}</button>
 
                 <!-- Volunteer Compliance -->
-                <h4 class="text-lg font-medium">
-                  {{ $t('volunteer_compliance') }}
-                </h4>
+                <h4 class="text-lg font-medium">{{ $t('volunteer_compliance') }}</h4>
 
                 <OField
                   label-class="block text-sm font-medium text-gray-700"
@@ -1334,20 +1196,14 @@
                   </OSelect>
                 </OField>
 
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('church')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('church')">
                   <OSelect :placeholder="$t('select_church')" expanded>
                     <option value="1">Staff Only</option>
                     <option value="2">Option 2</option>
                   </OSelect>
                 </OField>
 
-                <OField
-                  label-class="block text-sm font-medium text-gray-700"
-                  :label="$t('role')"
-                >
+                <OField label-class="block text-sm font-medium text-gray-700" :label="$t('role')">
                   <OSelect :placeholder="$t('select_role')" expanded>
                     <option value="1">Staff Only</option>
                     <option value="2">Option 2</option>
@@ -1358,9 +1214,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1369,21 +1223,15 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('assignments') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('assignments_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('assignments') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('assignments_description') }}</p>
                 </div>
               </div>
               <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1392,12 +1240,8 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('interests') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('interests_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('interests') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('interests_description') }}</p>
                 </div>
               </div>
 
@@ -1427,13 +1271,15 @@
                 </OField>
 
                 <OField>
-                  <OSwitch>{{ $t('becoming_a_foster_family') }} </OSwitch>
+                  <OSwitch>{{ $t('becoming_a_foster_family') }}</OSwitch>
                 </OField>
 
                 <OField>
-                  <OSwitch>{{
-                    $t('becoming_a_respite_foster_family')
-                  }}</OSwitch>
+                  <OSwitch>
+                    {{
+                      $t('becoming_a_respite_foster_family')
+                    }}
+                  </OSwitch>
                 </OField>
 
                 <OField>
@@ -1452,9 +1298,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1463,12 +1307,8 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('notes') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('notes_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('notes') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('notes_description') }}</p>
                 </div>
               </div>
 
@@ -1504,9 +1344,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1515,12 +1353,8 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('agreements') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('agreements_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('agreements') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('agreements_description') }}</p>
                 </div>
               </div>
 
@@ -1529,16 +1363,13 @@
                 <h3 class="text-lg font-medium">{{ $t('agreements') }}</h3>
 
                 <h4>{{ $t('family_agreements') }}</h4>
-
                 {{ $t('no_agreements_found') }}
               </div>
               <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1547,21 +1378,17 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('care_communities') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('care_communities_description') }}
-                  </p>
+                  <h3
+                    class="text-lg font-medium leading-6 text-gray-900"
+                  >{{ $t('care_communities') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('care_communities_description') }}</p>
                 </div>
               </div>
               <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1570,21 +1397,15 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('history') }}
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ $t('history_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('history') }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ $t('history_description') }}</p>
                 </div>
               </div>
               <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1593,12 +1414,11 @@
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="px-4 py-6 space-y-6 bg-white sm:p-6">
                 <div>
-                  <h3 class="text-lg font-medium leading-6 text-gray-900">
-                    {{ $t('contact_log') }}
-                  </h3>
-                  <p v-if="false" class="mt-1 text-sm text-gray-500">
-                    {{ $t('contact_log_description') }}
-                  </p>
+                  <h3 class="text-lg font-medium leading-6 text-gray-900">{{ $t('contact_log') }}</h3>
+                  <p
+                    v-if="false"
+                    class="mt-1 text-sm text-gray-500"
+                  >{{ $t('contact_log_description') }}</p>
                 </div>
               </div>
 
@@ -1620,9 +1440,7 @@
                 <button
                   type="submit"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  {{ $t('save') }}
-                </button>
+                >{{ $t('save') }}</button>
               </div>
             </div>
           </form>
@@ -1633,18 +1451,18 @@
 </template>
 
 <script>
-import {data2} from '@/__mocks__'
+import { users } from '@/__mocks__'
 
 export default {
-  props: ['person'],
+  props: ['user'],
   metaInfo() {
     return {
-      title: `Edit ${this.person.firstName}`,
+      title: `Edit ${this.user.firstName}`,
     }
   },
   data() {
     return {
-      data2,
+      users,
       data: [],
       keepFirst: false,
       openOnFocus: false,
@@ -1679,7 +1497,7 @@ export default {
   },
   computed: {
     filteredDataObj() {
-      return this.data2.filter(option => {
+      return this.users.filter(option => {
         return option.user.first_name
           .toString()
           .toLowerCase()

@@ -11,6 +11,7 @@ import event from '@/store/modules/event'
 // import menu from '@/store/modules/menu'
 import message from '@/store/modules/message'
 import notification from '@/store/modules/notification'
+import products from '@/store/modules/products'
 // import user from '@/store/modules/user'
 
 Vue.use(Vuex)
@@ -26,22 +27,24 @@ const getEventIndexById = (state, eventId) =>
   state.events.findIndex(event => event.id.toString() === eventId.toString())
 
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   plugins: [saveStatePlugin],
   modules: {
     event,
     message,
     notification,
+    products,
   },
 
   state: {
     isMenuOpen: false,
     events: [
-      {
-        id: 10,
-        title: 'Gratitude, Wisdom, Care, Courage, Grit, Celebration',
-        date: new Date(),
-        allDay: true,
-      },
+      // {
+      //   id: 10,
+      //   title: 'Gratitude, Wisdom, Care, Courage, Grit, Celebration',
+      //   date: new Date(),
+      //   allDay: true,
+      // },
       {
         id: 20,
         title: 'Backlog Grooming/Story Time',
@@ -49,8 +52,18 @@ const store = new Vuex.Store({
       },
       {id: 30, title: 'Sprint Planning', start: addDays(new Date(), 2)},
       {id: 40, title: 'Release day', date: '2021-01-30'},
-      {id: 50, title: 'The Future of Frontend', date: '2021-02-05'},
+      // {id: 50, title: 'The Future of Frontend', date: '2021-02-05'},
     ],
+    pages: {
+      home: {name: 'Home', icon: 'home'},
+      dashboard: {name: 'Dashboard', icon: 'template'},
+      projects: {name: 'Projects', icon: 'collection'},
+      calendar: {name: 'Calendar', icon: 'calendar'},
+      customer: {name: 'Customers', icon: 'office-building'},
+      billing: {name: 'Billing', icon: 'credit-card'},
+      reports: {name: 'Reports', icon: 'document-report'},
+      settings: {name: 'Settings', icon: 'cog'},
+    },
     quotes: [
       {
         id: 1,
@@ -59,8 +72,7 @@ const store = new Vuex.Store({
       },
       {
         id: 2,
-        text:
-          'There is a destiny that makes us brothers; none goes his way alone. What we put into the lives of others, comes back into our own.',
+        text: 'There is a destiny that makes us brothers; none goes his way alone. What we put into the lives of others, comes back into our own.',
         attribution: 'Edwin Markham',
       },
       {
@@ -253,6 +265,11 @@ const store = new Vuex.Store({
       state.user = userData
     },
 
+    SET_USER_INFO(state, userInfo) {
+      // localStorage.setItem('user', JSON.stringify(userInfo))
+      state.user = userInfo
+    },
+
     LOGOUT() {
       localStorage.removeItem('user')
       location.reload()
@@ -305,5 +322,7 @@ const store = new Vuex.Store({
     },
   },
 })
+
+export * from './modules/mutation-types'
 
 export default store
