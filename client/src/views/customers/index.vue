@@ -14,9 +14,18 @@
     </BasePageHeading>
 
     <section class="p-4 m-4 bg-white shadow">
-      <div>
-        <OField label="Filter by name">
+      <div class="flex items-center space-x-4">
+        <OField label="Filter by Name">
           <OInput type="text" v-model="filters.name.value" />
+        </OField>
+        <OField label="Filter by City">
+          <OInput type="text" v-model="filters.city.value" />
+        </OField>
+        <OField label="Filter by State">
+          <OInput type="text" v-model="filters.city.value" />
+        </OField>
+        <OField label="Filter by Zip Code">
+          <OInput type="text" v-model="filters.zip.value" />
         </OField>
       </div>
 
@@ -48,6 +57,7 @@
                       <div class="flex items-center">
                         <div class="ml-4">
                           <div class="text-sm font-medium text-gray-900">{{ row.Name }}</div>
+                          <div class="text-sm text-gray-500">{{ row.StreetAddress1 }}</div>
                           <div
                             class="text-sm text-gray-500"
                           >{{ row.City }}, {{ row.State }} {{ row.PostalCode }}</div>
@@ -73,7 +83,10 @@ export default {
     return {
       customers,
       filters: {
-        name: { value: '', keys: ['Name'] }
+        name: { value: '', keys: ['Name'] },
+        city: { value: '', keys: ['City'] },
+        state: { value: '', keys: ['State'] },
+        zip: { value: '', keys: ['PostalCode'] },
       },
       columns: [
         // {

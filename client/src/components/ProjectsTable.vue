@@ -39,7 +39,7 @@
     <!-- Projects table (small breakpoint and up) -->
     <div class="hidden sm:block">
       <div class="inline-block min-w-full align-middle border-b border-gray-200">
-        <v-table
+        <VTable
           selectionMode="multiple"
           selectedClass="table-info"
           @selectionChanged="selectedRows = $event"
@@ -49,7 +49,7 @@
           :data="projects"
           class="min-w-full table-fixed"
         >
-          <thead slot="head">
+          <template #head>
             <tr class="border-t border-gray-200">
               <th
                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 select-none w-28 bg-gray-50 whitespace-nowrap"
@@ -62,18 +62,18 @@
               <th
                 class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 select-none w-28 bg-gray-50 whitespace-nowrap"
               >Claim #</th>
-              <v-th
+              <VTh
                 sortKey="InsuredLastName"
                 class="w-full px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 cursor-pointer select-none bg-gray-50 whitespace-nowrap"
               >
                 <span>Insured</span>
-              </v-th>
-              <v-th
+              </VTh>
+              <VTh
                 sortKey="ServiceArea"
                 class="hidden w-32 px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 cursor-pointer select-none whitespace-nowrap md:table-cell bg-gray-50"
               >
                 <span>Service Area</span>
-              </v-th>
+              </VTh>
               <th
                 class="hidden px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 select-none w-28 md:table-cell bg-gray-50 whitespace-nowrap"
               >Service Tech</th>
@@ -85,50 +85,50 @@
                 class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 select-none w-28 bg-gray-50"
               />
             </tr>
-          </thead>
-          <tbody slot="body" slot-scope="{displayData}" class="bg-white divide-y divide-gray-100">
-            <tr v-for="project in displayData" :key="project.id" :row="project">
-              <td class="px-6 py-1 text-xs text-gray-900 whitespace-nowrap">{{ project.Status }}</td>
+          </template>
+          <template #body="{ rows }" class="bg-white divide-y divide-gray-100">
+            <tr v-for="row in rows" :key="row.id" :row="row">
+              <td class="px-6 py-1 text-xs text-gray-900 whitespace-nowrap">{{ row.Status }}</td>
               <td class="px-6 py-1 text-xs text-gray-900 whitespace-nowrap">
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.ProjectNumber }}</a>
+                >{{ row.ProjectNumber }}</a>
               </td>
               <td class="px-6 py-1 text-xs text-gray-900 whitespace-nowrap">
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.ClaimNumber }}</a>
+                >{{ row.ClaimNumber }}</a>
               </td>
               <td class="py-1 pl-10 pr-6 text-xs text-gray-900 whitespace-nowrap">
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.InsuredLastName }}</a>
+                >{{ row.InsuredLastName }}</a>
               </td>
               <td
                 class="hidden py-1 pl-10 pr-6 text-xs text-gray-900 md:table-cell whitespace-nowrap"
               >
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.ServiceArea }}</a>
+                >{{ row.ServiceArea }}</a>
               </td>
               <td
                 class="hidden px-6 py-1 text-xs text-center text-gray-900 md:table-cell whitespace-nowrap"
               >
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.ServiceTech }}</a>
+                >{{ row.ServiceTech }}</a>
               </td>
               <td class="hidden px-6 py-1 text-xs text-gray-900 lg:table-cell whitespace-nowrap">
                 <a
                   class="border-b border-dotted text-primary-500 hover:border-solid hover:text-primary-600 hover:border-primary-600"
-                >{{ project.InsuranceAdjuster }}</a>
+                >{{ row.InsuranceAdjuster }}</a>
               </td>
             </tr>
-          </tbody>
-        </v-table>
+          </template>
+        </VTable>
 
         <div class="my-4">
-          <smart-pagination :currentPage.sync="currentPage" :totalPages="totalPages" />
+          <VTPagination :currentPage.sync="currentPage" :totalPages="totalPages" />
         </div>
       </div>
     </div>

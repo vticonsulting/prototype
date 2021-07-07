@@ -49,6 +49,19 @@ export default {
       users,
     }
   },
+  data() {
+    return {
+      userInfo: {
+        type: Object,
+        default() { },
+      },
+      providers: ['twitter', 'github', 'aad'],
+      redirect: window.location.pathname,
+    };
+  },
+  async created() {
+    this.userInfo = await this.getUserInfo();
+  },
   mounted() {
     console.log(this.$i18n.locale)
     // this.$api.{resource}.{method}
@@ -102,6 +115,17 @@ export default {
     },
   },
   methods: {
+    async getUserInfo() {
+      try {
+        const response = await fetch('/.auth/me');
+        const payload = await response.json();
+        const { clientPrincipal } = payload;
+        return clientPrincipal;
+      } catch (error) {
+        console.error('No profile could be found');
+        return undefined;
+      }
+    },
     handleRightClick(e) {
       e.preventDefault()
       this.$oruga.modal.open({
@@ -218,6 +242,29 @@ export default {
 
         <div class="flex items-center space-x-3">
           <div class="md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+            <!-- User info -->
+            <div class="user" v-if="userInfo">
+              <p>Welcome</p>
+              <p>{{ userInfo.userDetails }}</p>
+              <p>{{ userInfo.identityProvider }}</p>
+            </div>
+            <!-- End of user info -->
+
+            <!-- Login and logout buttons -->
+            <template v-if="!userInfo">
+              <template v-for="provider in providers">
+                <a
+                  :key="provider"
+                  :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
+                >{{ provider }}</a>
+              </template>
+            </template>
+            <a
+              v-if="userInfo"
+              :href="`/.auth/login/${provider}?post_login_redirect_uri=${redirect}`"
+            >Logout</a>
+            <!-- end of login and logout buttons -->
+
             <!-- Notifications Button -->
             <button
               @click="showAnnouncements = !showAnnouncements"
