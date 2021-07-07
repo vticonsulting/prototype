@@ -33,16 +33,9 @@ export default {
   <div>
     <div v-if="!products.length">Loading data ...</div>
     <ul class="list">
-      <li
-        v-for="(product, index) in products"
-        :key="product.id"
-        role="presentation"
-      >
+      <li v-for="(product, index) in products" :key="product.id" role="presentation">
         <div class="card">
-          <CardContent
-            :name="product.name"
-            :description="product.description"
-          />
+          <CardContent :name="product.name" :description="product.description" />
           <footer class="card-footer">
             <ButtonFooter
               class="delete-item"

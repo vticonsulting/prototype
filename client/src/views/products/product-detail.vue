@@ -6,7 +6,7 @@ export default {
   props: {
     product: {
       type: Object,
-      default() {},
+      default() { },
     },
   },
   components: { ButtonFooter },
@@ -99,7 +99,7 @@ export default {
         :iconClasses="'fas fa-undo'"
         :item="editingProduct"
         @clicked="clear"
-      ></ButtonFooter>
+      />
       <ButtonFooter
         class="card-footer-item"
         :className="'save-button'"
@@ -107,7 +107,7 @@ export default {
         :item="editingProduct"
         label="Save"
         @clicked="saveProduct"
-      ></ButtonFooter>
+      />
     </footer>
   </div>
 </template>
