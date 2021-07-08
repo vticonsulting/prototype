@@ -15,13 +15,19 @@
       "statusCode": 404
     },
     {
-      "route": "/projects",
+      "route": "/admin/*",
+      "allowedRoles": [
+        "administrator"
+      ]
+    },
+    {
+      "route": "/profile",
       "allowedRoles": [
         "authenticated"
       ]
     },
     {
-      "route": "/profile",
+      "route": "/projects",
       "allowedRoles": [
         "authenticated"
       ]

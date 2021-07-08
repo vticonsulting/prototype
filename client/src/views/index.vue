@@ -56,24 +56,24 @@ export default {
         //   description: this.$t('resources_description'),
         //   icon: 'library',
         // },
-        // {
-        //   name: 'training',
-        //   title: this.$t('training_title'),
-        //   description: this.$t('training_description'),
-        //   icon: 'academic-cap',
-        // },
-        // {
-        //   name: 'calendar',
-        //   title: this.$t('calendar_title'),
-        //   description: this.$t('calendar_description'),
-        //   icon: 'calendar',
-        // },
-        // {
-        //   name: 'support',
-        //   title: 'Support',
-        //   description: this.$t('support_description'),
-        //   icon: 'support',
-        // },
+        {
+          name: 'training',
+          title: 'Submit a Claim',
+          description: this.$t('training_description'),
+          icon: 'academic-cap',
+        },
+        {
+          name: 'calendar',
+          title: 'Schedule Unaccompanied field inspection',
+          description: this.$t('calendar_description'),
+          icon: 'calendar',
+        },
+        {
+          name: 'support',
+          title: 'Make a Payment',
+          description: this.$t('support_description'),
+          icon: 'support',
+        },
       ]
     },
   },
