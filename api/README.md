@@ -1,6 +1,6 @@
 # Azure Functions API
 
-This project is an Azure Functions app, that responds to GET, POST, PUT, and DELETE endpoints for products.
+This project is an Azure Functions app, that responds to GET, POST, PUT, and DELETE endpoints.
 
 ## Prerequisites
 
@@ -12,18 +12,15 @@ This project is an Azure Functions app, that responds to GET, POST, PUT, and DEL
 
 ## Getting Started
 
-1. Create a repository from this template repository <https://github.com/MicrosoftDocs/mslearn-staticwebapp/generate>
-
-1. Enter the name of your new repository as _mslearn-staticwebapp_
 
 1. Clone your new repository
 
    ```bash
-   git clone https://github.com/your-github-organization/mslearn-staticwebapp
+   git clone https://github.com/victortolbert/frontend
    cd mslearn-staticwebapp/api
    ```
 
-1. Create the file `api/local.setting.json` and modify its contents as follows:
+2. Create the file `api/local.setting.json` and modify its contents as follows:
 
 ```json
 {
@@ -53,6 +50,4 @@ This project is an Azure Functions app, that responds to GET, POST, PUT, and DEL
 
 ### Debugging Resources
 
-- [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?wt.mc_id=mslearn_staticwebapp-github-jopapa)
-- [Debugging React in VS Code](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial?wt.mc_id=mslearn_staticwebapp-github-jopapa)
 - [Debugging Vue in VS Code](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial?wt.mc_id=mslearn_staticwebapp-github-jopapa)

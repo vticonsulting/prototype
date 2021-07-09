@@ -15,28 +15,11 @@
       "statusCode": 404
     },
     {
-      "route": "/admin/*",
-      "allowedRoles": [
-        "administrator"
-      ]
-    },
-    {
-      "route": "/profile",
-      "allowedRoles": [
-        "authenticated"
-      ]
-    },
-    {
-      "route": "/projects",
-      "allowedRoles": [
-        "authenticated"
-      ]
-    },
-    {
-      "route": "/api/products/*",
-      "allowedRoles": [
-        "authenticated"
-      ]
+        "route": "/*",
+        "allowedRoles": [
+            "reader",
+            "contributor"
+        ]
     }
   ],
   "responseOverrides": {

@@ -1,3 +1,4 @@
+Carrier
 Claim
 Customer
 Project
@@ -6,6 +7,7 @@ ServiceType
 Territory
 User
 UserType
+Vendor
 
 
 ## User Types
@@ -16,3 +18,12 @@ UserType
 | 2   | Service Technicians |
 | 3   | Insurance Adjusters |
 | 4   | WebAPI Users        |
+
+
+## Service Types
+
+- Direct Inspect
+- Virtual Inspect
+- Emergency Tarp
+- Estimate
+- Ladder Assist
