@@ -11,8 +11,8 @@
         "redirect": "/.auth/login/aad"
     },
     {
-      "route": "/index",
-      "allowedRoles": ["anonymous"]
+        "route": "/logout",
+        "redirect": "/.auth/logout"
     },
     {
         "route": "/*",
@@ -25,10 +25,6 @@
     "401": {
       "statusCode": 302,
       "redirect": "/login"
-    },
-    "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
     }
   },
   "mimeTypes": {
