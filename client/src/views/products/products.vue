@@ -85,26 +85,34 @@ export default {
 </script>
 
 <template>
-  <div class="content-container">
-    <ListHeader :title="title" @refresh="getProducts" @add="enableAddMode" :routePath="routePath"></ListHeader>
-    <div class="columns is-multiline is-variable">
-      <div class="column is-8" v-if="products">
+  <div class="flex-1 content-container">
+    <ListHeader
+      class="mx-4 mt-4"
+      :title="title"
+      @refresh="getProducts"
+      @add="enableAddMode"
+      :routePath="routePath"
+    />
+
+    <div class="grid grid-cols-12 gap-4 mx-4 mt-4">
+      <div class="col-span-8" v-if="products">
         <ProductList
           v-if="!selected"
           :products="products"
           @selected="select($event)"
           @deleted="askToDelete($event)"
-        ></ProductList>
-        <ProductDetail v-if="selected" :product="selected" @unselect="clear" @save="save"></ProductDetail>
+        />
+
+        <ProductDetail v-if="selected" :product="selected" @unselect="clear" @save="save" />
       </div>
     </div>
 
     <Modal
-      class="modal-product"
+      class="hidden modal-product"
       :message="message"
       :isOpen="showModal"
       @handleNo="closeModal"
       @handleYes="deleteProduct"
-    ></Modal>
+    />
   </div>
 </template>

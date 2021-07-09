@@ -7,48 +7,24 @@
   },
   "routes": [
     {
-      "route": "/logout",
-      "redirect": "/.auth/logout"
+        "route": "/login",
+        "redirect": "/.auth/login/aad"
     },
     {
-      "route": "/.auth/login/github",
-      "statusCode": 404
+        "route": "/logout",
+        "redirect": "/.auth/logout"
     },
     {
-      "route": "/projects",
-      "allowedRoles": [
-        "authenticated"
-      ]
-    },
-    {
-      "route": "/profile",
-      "allowedRoles": [
-        "authenticated"
-      ]
-    },
-    {
-      "route": "/api/products/*",
-      "allowedRoles": [
-        "authenticated"
-      ]
+        "route": "/*",
+        "allowedRoles": [
+          "contributor"
+        ]
     }
   ],
   "responseOverrides": {
-    "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
-    },
     "401": {
       "statusCode": 302,
-      "redirect": "/index"
-    },
-    "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
-    },
-    "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "redirect": "/login"
     }
   },
   "mimeTypes": {
