@@ -324,7 +324,7 @@ export default {
                   />
 
                   <a
-                    :href="`/.auth/logout?post_logout_redirect_uri=/index`"
+                    :href="`/.auth/logout?post_logout_redirect_uri=/login`"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >{{ $t('sign_out') }}</a>
