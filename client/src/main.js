@@ -13,6 +13,12 @@ Vue.use(require('vue-shortkey'))
 
 Vue.config.productionTip = false
 
+// Start the mocking conditionally.
+if (process.env.NODE_ENV === 'development') {
+  const {worker} = require('./mocks/browser')
+  worker.start()
+}
+
 new Vue({
   i18n,
   router,
