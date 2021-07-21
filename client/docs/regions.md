@@ -868,8 +868,6 @@ if (data != null) {
 
 :tada: :100:
 
-![An image](./favicon.svg)
-
 | Tables        |      Are      |  Cool |
 | ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |

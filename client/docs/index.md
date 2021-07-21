@@ -763,7 +763,6 @@ if (data != null) {
 
 :tada: :100:
 
-![An image](./favicon.svg)
 
 | Tables        |      Are      |  Cool |
 | ------------- | :-----------: | ----: |
