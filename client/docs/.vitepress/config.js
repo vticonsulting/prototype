@@ -1,4 +1,4 @@
 module.exports = {
-  title: 'Exemplar Documentation',
+  title: 'Service Regions and Areas',
   description: 'Just playing around.',
 }

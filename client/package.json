@@ -10,7 +10,9 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "commitmsg": "commitlint -e $GIT_PARAMS || (echo \"\nRead about commit message formatting here: https://github.com/sproutsocial/seeds-packets#committing-changes\" && exit 1)",
+    "format:prettier": "prettier-eslint --write --eslint-ignore --print-width=120 --single-quote --no-bracket-spacing"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
@@ -46,6 +48,8 @@
     "@aws-sdk/s3-request-presigner": "3.19.0",
     "@babel/core": "7.14.6",
     "@babel/eslint-parser": "7.14.7",
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
     "@dbml/core": "^2.3.0",
     "@fortawesome/fontawesome-pro": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -122,6 +126,12 @@
     "dotenv": "^8.6.0",
     "dotenv-cli": "^4.0.0",
     "dotenv-parse-variables": "^1.0.1",
+        "pascal-case": "^2.0.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+
+    "style-dictionary": "^2.7.0",
+    "tinycolor2": "^1.4.1",
     "dropzone": "5.9.2",
     "emoji-strip": "^1.0.1",
     "eslint": "^6.8.0",
@@ -167,6 +177,10 @@
     "litepicker": "^2.0.11",
     "lodash": "^4.17.21",
     "lodash.groupby": "^4.6.0",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.snakecase": "^4.1.1",
+    "lodash.upperfirst": "^4.3.1",
     "luxon": "^1.28.0",
     "mapbox-gl": "^2.3.1",
     "mapbox-gl-vue": "^2.0.4",
@@ -282,6 +296,9 @@
     "vuex-router-sync": "^5.0.0",
     "webpack": "^4.46.0",
     "yup": "^0.32.9"
+  },
+  "resolutions": {
+    "lodash": "^4.17.21"
   },
   "eslintConfig": {
     "root": true,
